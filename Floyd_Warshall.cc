@@ -28,13 +28,11 @@ public :
     vector<vector<int>>next;
     vector<vector<long long>> len;
     
-    FloydWarshall(int nV, vector<tuple<int, int, int>> weigths) : 
+    FloydWarshall(int nV, vector<tuple<int, int, int>> weights) : 
         nV(nV), weights(weights), 
         len(nV, vector<long long>(nV, INT_MAX)),
         next(nV, vector<int>(nV, -1))
-        {
-            cout << weights.size() << endl;
-        }
+        { }
         
     void shortestPath(){
         // initialization
@@ -42,14 +40,12 @@ public :
             len[i][i] = 0;
         }
         
-        int i, j, w; cout << weights.size() << endl << endl;
-        for(int p = 0; p < weights.size(); ++p){ cout << p << endl;
+        int i, j, w;
+        for(int p = 0; p < weights.size(); ++p){
             tie(i, j, w) = weights[p];
             len[i][j] = w;
             next[i][j] = j;
         }
-        
-        printLen();
         
         for(int k = 0; k < nV; ++k){
             for(int i = 0; i < nV; ++i){
@@ -79,7 +75,7 @@ public :
     
     void printPath(vector<int> path){
         for(auto i : path)
-            cout << i << "->";
+            cout << i << (i != path.back() ? "->" : "");
         cout << endl;
     }
     
@@ -100,17 +96,17 @@ private :
 int main(){
     int nV = 5;
     vector<tuple<int, int, int>> weights = {
-        make_tuple(0, 1, 3),
-        make_tuple(1, 2, -1),
-        make_tuple(2, 3, 1),
-        make_tuple(3, 4, 8),
-        make_tuple(4, 0, -2)
+        tuple<int, int, int>(0, 1, 3),
+        tuple<int, int, int>(1, 2, -1),
+        tuple<int, int, int>(2, 3, 1),
+        tuple<int, int, int>(3, 4, 8),
+        tuple<int, int, int>(4, 0, -2)
     }; 
 
-    FloydWarshall fw(nV, weights);
+    FloydWarshall fw(nV, weights); 
     fw.shortestPath();
     fw.printLen();
-    fw.printPath(fw.retrievePath(0, 3));
+    fw.printPath(fw.retrievePath(0, 4));
     
     return 0;
 }
