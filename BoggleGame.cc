@@ -31,27 +31,11 @@ public:
                 node->hasWord = true;
             }
         }
-	
-	void printTree(Node *node){
-	    if(node == NULL)
-		return;
-	    for(int i = 0; i < 26; i++){
-		if(node->next[i] != NULL){
-		    cout << static_cast<char>('a' + i) << ' ';
-		    printTree(node->next[i]);
-		    cout << ' ';
-		}
-	    }
-	}
-
-	void printTree(){
-	    printTree(root);
-	}
     };
     
     vector<string> maxNumofWords(vector<vector<char>> board, vector<string> dict){
 	Trie trie;
-	trie.buildTree(dict); // trie.printTree();
+	trie.buildTree(dict);
 
 	int rows = board.size(), cols = board[0].size();
 	vector<vector<bool>> visited(rows, vector<bool>(cols, false));
@@ -77,20 +61,20 @@ public:
 	
 	int newx = y == cols -1 ? x + 1 : x;
 	int newy = y == cols -1 ? 0: y+1;
-	dfs2(board, finalResult, curtResult, visited, newx, newy, trie);
+	dfs2(board, finalResult, curtResult, visited, newx, newy, trie); // discard current found
 	for(int i = 0; i < result.size(); i++){
 	    curtResult.push_back(result[i]);
 	    for(int loc : paths[i])
 		visited[loc/cols][loc%cols] = true;
-	    dfs2(board, finalResult, curtResult, visited, newx, newy, trie);
+	    dfs2(board, finalResult, curtResult, visited, newx, newy, trie); // use each found
 	    for(int loc : paths[i])
 		visited[loc/cols][loc%cols] = false;
 	    curtResult.pop_back();
 	}
     }
 
-    void dfs(vector<vector<char>> &board, 
-	     vector<vector<bool>> &visited, vector<string> &result, string &curtWord,
+    void dfs(vector<vector<char>> &board, vector<vector<bool>> &visited, 
+	     vector<string> &result, string &curtWord,
 	     vector<vector<int>> &paths, vector<int> &curtPath, Node *node, int x, int y){
 	int rows = board.size(), cols = board[0].size();
 	if(x < 0 || x >= rows || y < 0 || y >= cols || visited[x][y] || node->next[board[x][y]-'a'] == NULL)
@@ -126,7 +110,7 @@ int main(){
 	{'i','h','k','r'},
 	{'i','f','l','v'}
     };
-    vector<string> dict = {"oath","pea","eat","rain", "ifl"};
+    vector<string> dict = {"oath","pea","eat","rain", "ihk"};
     BoggleGame bg;
     auto result = bg.maxNumofWords(board, dict);
     
