@@ -25,6 +25,7 @@ public :
     // pitfalls :
     // 1) since you need to update the value inside a priority queue, so use set instead
     // 2) when updating (i.e. remove + insert) a set element. remove first, and the update distance value.
+    // 3) be careful about points unreachable.
     vector<string> shortestPath(string start, string target, vector<string> vertices,
 				vector<tuple<string, string, int>> edges){
 	unordered_map<string, unordered_set<pair<string, int>, MyHash>> dep;
@@ -54,6 +55,8 @@ public :
 	    string s = *open.begin();
 	    open.erase(open.begin());
 	    int dist = distances[s];
+	    if(dist == INT_MAX) // points cannot be reached from starting point
+		continue;
 
 	    for(auto &p : dep[s]){		
 		string nei = p.first;
