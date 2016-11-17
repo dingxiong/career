@@ -14,21 +14,16 @@ using namespace std;
 class Dijkstra {
 public :
 
-    struct MyHash {
-	size_t operator()(pair<string, int> x) const {
-	    hash<string> h;
-	    return h(x.first + to_string(x.second));
-	}
-    };
-
     // the implimentation is for undirected graph. but it can be easily modified for directed graph.
     // pitfalls :
     // 1) since you need to update the value inside a priority queue, so use set instead
     // 2) when updating (i.e. remove + insert) a set element. remove first, and the update distance value.
     // 3) be careful about points unreachable.
+    // 4) the comparison passed to set<> should keep element unique. We should not use multiset because
+    //    the erase method will delete multiple elements with the same distance.
     vector<string> shortestPath(string start, string target, vector<string> vertices,
 				vector<tuple<string, string, int>> edges){
-	unordered_map<string, unordered_set<pair<string, int>, MyHash>> dep;
+	unordered_map<string, unordered_map<string, int>> dep;
 	unordered_map<string, int> distances;
 	unordered_map<string, string> comeFrom;
 	auto comp = [&distances](const string &a, const string &b){ 
@@ -42,8 +37,8 @@ public :
 	    string from, to;
 	    int cost;
 	    tie(from, to, cost) = p;
-	    dep[from].emplace(to, cost);
-	    dep[to].emplace(from, cost);
+	    dep[from][to] = cost;
+	    dep[to][from] = cost;
 	}
       
 	for(auto s : vertices){
