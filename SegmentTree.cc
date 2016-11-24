@@ -14,7 +14,6 @@ public:
     
     
     SegmentTree(vector<int> &nums) {
-        arr = nums;
         int n = nums.size();
         root = new SegNode(0, n-1);
         
@@ -39,8 +38,7 @@ public:
     }
 
     void update(int i, int val) { 
-        int change = val - arr[i];
-        arr[i] = val;
+        int change = val - sumRange(i, i);
         
         SegNode *curt = root;
         while(curt->low < curt->high){
@@ -73,7 +71,6 @@ public:
     
 private :
     SegNode *root;
-    vector<int> arr;
 };
 
 int main(){
