@@ -11,7 +11,7 @@ struct TreeNode {
 };
 
 class stackMethod {
-    vector<int> inorder(TreeNode *root){
+    vector<int> preorder(TreeNode *root){
 	vector<int> result;
 	if(root == NULL)
 	    return result;
@@ -31,7 +31,7 @@ class stackMethod {
 	return result;
     }
     
-    vector<int> preorder(TreeNode *root){
+    vector<int> inorder(TreeNode *root){
 	vector<int> result;
 	stack<TreeNode*> stk;
 	TreeNode *curt;
