@@ -54,6 +54,8 @@ class UnionFind2 {
   /**
    * common mistakes:
    * 1. fathers.put(i1*n+j1, f2) => we should put (f1, f2)
+   * 2. int f1 = fathers.get(i1*n+j1) => we should use find() because 
+   *    fathers map may not be the ultimate representative of this set
    */
   private void union(int i1, int j1, int i2, int j2) {
     int f1 = find(i1, j1);
