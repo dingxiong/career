@@ -1,5 +1,5 @@
 ## Collection of classical algorithms
-- Dijkstra's algorithm
+- Dijkstra's algorithm `LC743`
 - uniform-cost search  
 	> Dijkstra's algorithm searches for shortest paths from root to every other node in a graph, whereas uniform-cost searches for shortest paths in terms of cost to a goal node. 
 - A* algorithm 
@@ -7,14 +7,15 @@
 	> Dijkstar's algorithm cannot handle negative weight edges, but Bellman-Ford does. 
 - [TODO] Johnson's algorithm
 - Radix sort
+- Union find
 
 ## Data structures  
-Ones should master
+**Ones should master**
 - red black tree 
 - AVL
 - Trie tree `LC720`
 
-Ones should know about
+**One should know about**
 - B-Tree
 - Suffix tree
 
