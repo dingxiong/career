@@ -39,7 +39,6 @@ class Dijkstra {
       costs.get(e[0] - 1).put(e[1] - 1, e[2]);
     }
 
-    int[] visited = new int[N];
     int[] distances = new int[N];
     Arrays.fill(distances, Integer.MAX_VALUE);
     distances[K-1] = 0;

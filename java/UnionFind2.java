@@ -73,6 +73,7 @@ class UnionFind2 {
    *
    * common mistakes:
    * 1. decode x, y coordinate f / n and f % n, not f % n and then f / n
+   * 2. if not while
    */
   private int find(int i, int j) {
     int key = i*n + j;

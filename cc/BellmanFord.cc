@@ -6,6 +6,19 @@
 
 using namespace std;
 
+/**
+ * Dynamic programming:
+ * Let f(i, k) be the distance from `start` to `i` if the edges used is less than or equal to k
+ * base case: f(i, 0) = i == start ? 0 : Inf
+ * recursion: f(i, k) = min(f(i, k-1), f(j, k-1) + d(j, i)) for all j's that are connected to i.
+ *
+ * Application:
+ * 1. find negative cycle in the graph
+ *
+ * pitfalls: 
+ * 1. when comparing f(j, k-1) + d(j, i) with f(i, k-1) be cautious that f(j, k-1) may be Inf.
+ * 2. 
+ */
 class BellmanFord {
 public :
 
@@ -28,6 +41,7 @@ public :
 		    comeFrom[to] = from;
 		}
 		swap(from, to); // assume undirected graph
+		// we use distances[to] - cost because distances[from/to] could be INT_MAX
 		if(distances[from] < distances[to] - cost){
 		    distances[to] = distances[from] + cost;
 		    comeFrom[to] = from;
