@@ -4,6 +4,7 @@
 
 using namespace std;
 
+// SegmentTree implements two methods: query && update
 class SegmentTree {
 public:
     struct SegNode {
@@ -66,7 +67,7 @@ public:
         else if(j <= mid)
             return sumRangeHelper(i, j, root->left);
         else
-            return sumRangeHelper(i, mid, root->left) + sumRangeHelper(mid + 1, j, root->right);        
+            return sumRangeHelper(i, mid, root->left) + sumRangeHelper(mid + 1, j, root->right);
     }
     
 private :
