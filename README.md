@@ -4,10 +4,11 @@ This is my personal collection of materials for tech interviews.
 
 ### string matching
 - core
-	- KMP
-	- Rabin Karp
-	- Boyer Moore
+	- [ ] KMP
+	- [ ] Rabin Karp
+	- [ ] Boyer Moore
 - extended:
+	- [x] Manacher: find the longest palindrome substring
 	- [x] Ukkonen’s Suffix Tree Construction
 		> Very complicated. Only learn it if you have time. [best illustration](https://stackoverflow.com/questions/9452701/ukkonens-suffix-tree-algorithm-in-plain-english/9513423#9513423)
 	- 
@@ -49,9 +50,10 @@ This is my personal collection of materials for tech interviews.
 ## Resources
 - [How to choose startup](https://www.douban.com/group/topic/4239381/)
 - [Guide to Equity & IPOs](https://blog.wealthfront.com/equity-ipo-guide/)  
-- Look up salaries [paysa](https://www.paysa.com/)
+- [paysa](https://www.paysa.com/); [levels](https://www.levels.fyi/)
 - Look up info about startups
 	- [crunchbase](https://www.crunchbase.com) 
+	- [Angel list](https://angel.co/)
 	- search on blind. Follow topic `Startups`
 - https://techcrunch.com/
 
