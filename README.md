@@ -13,7 +13,7 @@ This is my personal collection of materials for tech interviews.
 		> Very complicated. Only learn it if you have time. [best illustration](https://stackoverflow.com/questions/9452701/ukkonens-suffix-tree-algorithm-in-plain-english/9513423#9513423)
 	- 
 
-### graph algorithm
+### graph/tree algorithm
 - core
 	- [x] cycle detection `LC684`
 	- [x] Dijkstra's algorithm `LC743`
@@ -29,6 +29,7 @@ This is my personal collection of materials for tech interviews.
 	- [ ] Radix sort
 	- [x] Union find `LC 765`
 - extended
+	- [ ] Morris traversal 
 	- [x] Convex hull `LC 587` 
 
 
