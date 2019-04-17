@@ -28,6 +28,8 @@ public class TreeTraversal {
     System.out.println(t.postOrder(root));
     System.out.println(t.postOrderReversePreOrder(root));
     System.out.println(t.postOrderStackApproach(root));
+
+    System.out.println(t.dfs(root));
   }
 
   /* ---------------             pre order        ----------------- */
@@ -152,7 +154,22 @@ public class TreeTraversal {
     return result;
   }
 
+  /* ---------------             DFS level traversal        ----------------- */
+  private List<List<Integer>> dfs(Node root) {
+    List<List<Integer>> result = new ArrayList<>();
+    dfsHelper(root, result, 1);
+    return result;
+  }
 
+  private void dfsHelper(Node root, List<List<Integer>> result, int depth) {
+    if (root == null) return;
+    if (result.size() < depth) result.add(new ArrayList<>());
+    result.get(depth - 1).add(root.val);
+    dfsHelper(root.left, result, depth+1);
+    dfsHelper(root.right, result, depth+1);
+  }
+
+  /* ---------------             ------------------        ----------------- */
   static class Node {
     int val;
     Node left, right;
