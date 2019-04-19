@@ -32,6 +32,10 @@ This is my personal collection of materials for tech interviews.
 	- [ ] Morris traversal 
 	- [x] Convex hull `LC 587` 
 
+### others
+- core
+	- [x] Fisher–Yates shuffle `LC 519`
+
 
 ## Data structures  
 - core
@@ -55,7 +59,7 @@ This is my personal collection of materials for tech interviews.
 ## Resources
 - [How to choose startup](https://www.douban.com/group/topic/4239381/)
 - [Guide to Equity & IPOs](https://blog.wealthfront.com/equity-ipo-guide/)  
-- [paysa](https://www.paysa.com/); [levels](https://www.levels.fyi/)
+- [paysa](https://www.paysa.com/); [levels](https://www.levels.fyi/); [ref](https://reffo.us/offers); [repher](https://repher.me/)
 - Look up info about startups
 	- [crunchbase](https://www.crunchbase.com) 
 	- [Angel list](https://angel.co/)
