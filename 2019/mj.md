@@ -102,7 +102,50 @@ Note: pay more attention to LC 33
     - [ ] 打印矩阵
     - [ ] 简化版的calculator，只含有括号，加和乘
     - [ ] [bank account transfer problem](http://web.mit.edu/6.005/www/fa15/classes/23-locks/#locking)
-    - [Degree of an array] [reea](rh1.jpeg)
+    - [x] ![Degree of an array](rh1.jpeg)
+        ```java
+        int degreeOfArray(int[] array) {
+            Map<Integer, Integer> counts = new HashMap<>();
+            Map<Integer, int[]> width = new HashMap<>();
+            int maxCount = 0;
+            for (int i = 0; i < array.length; i++) {
+                counts.put(array[i], counts.getOrDefault(array[i], 0) + 1);
+                maxCount = Math.max(maxCount, counts.get(array[i]) + 1);
+                if (width.containsKey(array[i])) width.get(array[i])[1] = i;
+                else width.put(array[i, new int[]{i, i});
+            }
+            int minLen = array.length;
+            for (int i = 0; i < array.length; i++) {
+                if (counts.get(array[i]) == maxCount) {
+                    int[] w = width.get(array[i]);
+                    minLen = Math.min(minLen, w[1] - w[0]);
+                }
+            }
+            return minLen + 1;
+        }
+        ```
+    - [x] ![word wrap](rh2.jpeg)
+        ```java
+        List<String> wordWrap(String words, int k) {
+            List<String> result = new ArrayList<>();
+            String[] ss = words.split(" ");
+            int n = ss.length;
+            StringBuilder sb = new StringBuilder(); 
+            for (int i = 0; i < n; i++) {
+                if (ss[i].length() > k) return "";
+                if (sb.length() + ss[i].length() > k) {
+                    sb.deleteCharAt(sb.length()-1);
+                    result.add(sb.toString());
+                    sb.setLength(0);
+                } 
+                sb.append(ss[i]);
+                sb.append(' ');
+            }
+            return result;
+        }
+        ```
+    - [x] ![returns on investments](rh3_a.jpeg) ![part_b](rh3_b.jpeg)
+
 - System design
     - message app for families。需要考虑产品功能，UI设计，API设计以及后台的Data Model
     - implement Publisher Subscriber
