@@ -102,6 +102,7 @@ Note: pay more attention to LC 33
     - [ ] 打印矩阵
     - [ ] 简化版的calculator，只含有括号，加和乘
     - [ ] [bank account transfer problem](http://web.mit.edu/6.005/www/fa15/classes/23-locks/#locking)
+    - [Degree of an array] [reea](rh1.jpeg)
 - System design
     - message app for families。需要考虑产品功能，UI设计，API设计以及后台的Data Model
     - implement Publisher Subscriber
