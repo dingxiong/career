@@ -96,12 +96,38 @@ Note: pay more attention to LC 33
 
 ## Robinhood (2018/9/19 - 2019/5/1)
 - coding
-    - [ ] LC 140, 54, 418, 59, 224 Basic Calculator 3,
+    - [x] LC 54, 59, 
+    - [ ] LC 140, 418, 224 Basic Calculator 3,
     - [ ] 给一个数组，找这个数组的某个区间使得区间的中位数最大
     - [ ] 写一个function来算input的mean max min等等
-    - [ ] 打印矩阵
-    - [ ] 简化版的calculator，只含有括号，加和乘
+    - [ ] 简化版的calculator，只含有括号，加和乘, 类似LC773
+        "((1+2)*3)" -> 9
+        operators: + *
+        operands: 0-9
+        Arbitrarily nested parenthesis 
+
+        "((1+2)*((1+((2)))*3))": Valid
+        "(((4)))"
+        Always balanced
+
+        "(1+2*3)"" -> Not allowed
+        "(1+(2*3))" -> 7
+
+
+        ((1+2)*3)
     - [ ] [bank account transfer problem](http://web.mit.edu/6.005/www/fa15/classes/23-locks/#locking)
+        ```python
+        def bad_transfer(src_account, dst_account, amount): 
+            src_cash = src_account.cash # DB read
+            dst_cash = dst_account.cash # DB read
+            if src_cash < amount: 
+                raise InsufficientFunds
+            src_account.cash = src_cash - amount # DB write
+            src_account.send_src_transfer_email()
+            dst_account.cash = dst_cash + amount # DB write     
+         
+            dst_account.send_dst_transfer_email()
+        ```
     - [x] ![Degree of an array](rh1.jpeg)
         ```java
         int degreeOfArray(int[] array) {
@@ -153,6 +179,7 @@ Note: pay more attention to LC 33
     - 假设exchange有一个异步的API来post market order和查询order状态 要求做一个robinhood的交易功能，要求任何情况都不能挂。这轮被考到了，需要考虑exchange的API timeout和server crash的情况。面试官让你写实现功能的flow然后考虑哪一步会挂。主要是local db会有一个state，exchange那边会有一个state，在上述情况有可能out of sync。思路是先commit local db的transaction再去call exchange API，然后用aync job来verify和fix inconsitency
     - 一个API service的load banlancer后面会有很多个server，每个server都会有一个log，如何将这些log merge起来，并且设置monitor，alert之类的。楼主的答案是基于Kafka的。
     - design一个family messaging app，从database，到API，到front-end
+    - 设计股票交易系统
 
 
 ## Jane Street (All time)
@@ -160,54 +187,8 @@ Note: pay more attention to LC 33
     - [ ] buy and sell stock 
     - [ ] input: char[][] matrix, int i, int j，其中(i, j)相当于matrix上某点，matrix上每char可能是{up, down, right, left, x},其中x有且只有一个 问是否能从（i, j）走到x所在的点. output: boolean
 
-## Uber
-- coding
-    - LC 332
-    - 找岛的个数和返回一个数的质数因子
-    - 给定一串字符，以及每行的长度限制，输出每行内容。
-e.g. 20 Hey Joey, your uber is arriving soon!
-Hey Joey, your uber 
-is arriving soon!
+## [Uber](uber.md)
 
-Follow-up
-1. 什么edge case要考虑？答单个单词长度超过每行限制。要求实现当下一个字符的长度超过限制时，从中截断输出。
-e.g. 11 Hey Joey, your uber is abcdefghijklmnopqrstuvwxyz soon!
-Hey Joey, 
-your uber
-is abcdefghijklmnopqrs
-tuvwxyz
-soon!
-
-2. 又问了如果你来测试，会给出哪些test case
-3. 现在想要在每一行后加上标记这是第几行 （i/N）i是当前行，N是总行数
-e.g. 15 Hey Joey, your uber is abcdefghijklmnopqrstuvwxyz soon!
-Hey Joey,(1/6)
-your uber(2/6)
-is abcdefg(3/6)
-hijklmnopq(4/6)
-rstuvwxyz(5/6)
-soon!(6/6)
-
-用了先估计每行需要省出多少字符来做标记的方法。用input长度除去行宽的位数加一来估计N的字符数，然后用估计的字符数来限制新的每行行宽。之后将每一行的字符写入，最后再在每一行后加上标记即可。
-
-https://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=516826&extra=page%3D29%26filter%3Dauthor%26orderby%3Ddateline%26sortid%3D311&page=1
-
-- 电面是给定一个transaction list代表一系列银行之间转账的交易，比如[Chase, BOA, 100]代表Chase给BOA打了100刀，简化这个transaction list。不需要简化到最简，只要相同一对银行的转账记录压缩到一个就行了，比如transaction list包含[Chase, BOA, 100]，[BOA, Chase, 200], [BOA, Chase, -100], 就可以简化成[BOA, Chase, 0]，谁在前面都可以。题目不难，还是很直观的。
-- LC 140. Word Break II
-- Kth Most Frequent Element in array. Given an array, return kth most frequent element, like:
-example1: array:[1,5,5,4,4,5], k = 1, return 5 (5's has 1st most frequency)
-example2: array:[1,
-
-    
-    第一轮-bar-raiser：主要聊了工程师相关的一些问题，全程都在BQ，比如leadership啊mentoringship之类的
-第二轮Design：一个俄罗斯美女和一个美国经理，DesignInstgram，老题目了。主要是结合了Feed+CDN的设计
-第三轮Design：一个土耳其大哥，Design Whatsapp，在登录认证上有很多的讨论
-第四轮Coding：一个欧洲帅哥，手机短信切分的问题，要考虑一下part大于10个的情况，一定要run出正确的结果，还问了一些testing的问题。应该说讨论的还是蛮开心的
-第五轮Coding：一个俄罗斯美女，GameOfLife，主要问了是否有一些优化的方法，还问了时间复杂度的问题。
-
-- system design
-    - DesignDropbox 所有的System Design会问的都会问 (storage/scale/requirements etc) 会特别问如何解决 conflicts/concurrency (记得看看lamport clock) 然后要想想存data本身跟存储meta data之间怎么协调
-    - 
 
 ## Microsoft
     - lc 752   
