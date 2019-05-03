@@ -54,8 +54,14 @@ This is my personal collection of materials for tech interviews.
 
 
 ## Architecture && Experience
-- [ ] Solr vs Elasticsearch
+System design steps: 
+1. use cases
+2. data schemas & Api & tradeoff 
+3. data size & scalability
 
+Common techniques:
+- [ ] Solr vs Elasticsearch, reverse indexing
+- [ ] sharding, partitioning
 ## Resources
 - [How to choose startup](https://www.douban.com/group/topic/4239381/)
 - [Guide to Equity & IPOs](https://blog.wealthfront.com/equity-ipo-guide/)  
