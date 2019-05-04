@@ -1,10 +1,10 @@
 - Candidate list:
 	- phone interview arranged
-		- LinkedIn, Robinhood, Brex, Jane street, 
+		- LinkedIn, Robinhood, Brex, Jane street, Uber, Houzz
 	- recruiter phone arranged
-		- Twitter, Google, Facebook, Uber (May 20 3:30pm-5:30pm, May 24 3:30pm-5:30pm, May 27 3:30pm-5:30pm), Square, Lyft, Houzz
+		- Twitter, Google, Facebook, , Square, Lyft
 	- 内推的：
-	 	- snapchat?, Apple, Netflix
+	 	- snapchat?, Apple, Netflix?
 	- LinkedIn 联系的
 		- Citadel NXT,
 	- 网投

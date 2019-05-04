@@ -2,6 +2,8 @@ seckcoder
 BeAHost2019!
 ## common 
 system design https://www.1point3acres.com/bbs/forum.php?mod=forumdisplay&fid=323&orderby=dateline&orderby=dateline&filter=author&page=1
+https://juejin.im/post/5ba63910e51d450e576703a1
+
 
 ## Facebook 
 - coding
