@@ -10,6 +10,10 @@
 	- 网投
 		- Citadel, Pinterest, two sigma, jump trading, DE shaw, dropbox, 
 
+- left work
+	- two week notice
+	- airbnb credit transfer to personal account
+
 - 律师：
 	1. 问清楚律师 H1B transfer: 多久时间
 	2. 问清楚 priority day 有没有影响
