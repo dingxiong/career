@@ -1,11 +1,11 @@
 page 1: 151
 - coding
     - [x] LC easy: 3, 17, 20, 22, 33, 34, 35, 36, 88, 101, 122, 160, 349 438
-    - [x] LC medium: 40, 49, 56, 62, 75, 79, 86, 98, 127, 138, 139, 173, 200, 206, 207, 208, 210, 221, 227, 253, 267, 279, 287, 300 332 341 353 362 380, 385, 399, 450, 694 1014,
-    - [x] LC hard: 37, 42，68, 72, 76, 126, 128, 140, 158, 212, 239, 295 297 381 465 730 895
-    - [ ] LC 164, 745 773 289, 301, 304 305 329 410 518, 528, 529 625, 636 , 427, 921, 978, 979, 986 815
+    - [x] LC medium: 40, 49, 56, 62, 75, 79, 86, 98, 127, 138, 139, 173, 200, 206, 207, 208, 210, 221, 227, 253, 267, 279, 287, 300 332 341 353 362 380, 385, 399, 450, 694 921 1014,
+    - [x] LC hard: 37, 42，68, 72, 76, 126, 128, 140, 158, 212, 239, 295 297 381 465 730 759 895
+    - [ ] LC 164, 745 773 289, 301, 304 305 329 410 518, 528, 529 625, 636 427 978, 979, 986 815
     - [ ] LC 736 640 658 359 947 785
-    - [ ] LC todo 741 759
+    - [ ] LC todo 741
     - [ ] LC next permutation, calculator I, intersect/untion two lists of intervals, merge interval, skyline, alien dictionary, 
     - [ ] LC 2D Trapping Rainwater, 3D Trapping Rainwater
     - [ ] LC hit count、find k closest element、 surrounded region, Design Hit Counter, coin change 2
@@ -70,7 +70,7 @@ page 1: 151
     - 设计一个高并发的在线售票系统，从user case，QPS，前端，到database全说了一遍。followup：如果售票系统还要加个新功能，用户选座位时候可以hold 5分钟，在这个时间段其他用户看这张票是sold out，整个系统该怎么改？
     - design ticket master，问题很多。关键点应该就是如何支持秒杀
     - [x] design rate limiter.
-    - tiny url
+    - [x] tiny url
     - Design Whatsapp
     - 设计一个即时通讯系统，类似于微信这样。
     - design heat map

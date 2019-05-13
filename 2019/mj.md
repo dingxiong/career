@@ -4,6 +4,13 @@ BeAHost2019!
 system design https://www.1point3acres.com/bbs/forum.php?mod=forumdisplay&fid=323&orderby=dateline&orderby=dateline&filter=author&page=1
 https://juejin.im/post/5ba63910e51d450e576703a1
 
+## design kafka
+Kafka is a distributed streaming platform
+1. main concepts: 
+    - (topic, partition, offset), producer, consumer, Broker
+    - (leader, follower) for fault tolerance
+    - 
+2. 
 
 
 ## distributed KV store
@@ -12,22 +19,6 @@ key concept:
 - p2p architecture (gossip protocol), eg. Cassandra VS master-slave architecture
     - p2p: no single point of failure, no leader election, 
     - cons: only eventual consistency
-
-## design instgram
-- requirement
-    - user can register on instgram 
-    - user can follow others
-    - user can post photos with descriptions
-    - user can view his/her home page timeline posts
-- Schema
-    - users (id, email, username, created_at)  index: email;
-    - followers (id, follower_id, followee_id, created_at) index: follower_id; followee_id;
-    - posts (id, user_id, post_ts, description, media_url) index: (user_id, post_ts)
-- follow up
-    - image storage: S3 + CDN
-    - pull vs push
-        - pull requires periodically looking up for updates => stale homepage time or large load on server
-        - push may be bad for celebrities who have 1m+ followers.
 
 Ruby script to grep 1point3acres
 ```ruby
@@ -67,7 +58,6 @@ pages = get_pages("lyft", 1, 100)
     - [ ] 实现一个iterator class, input是正常的iterator, 这个class可以实现hasNext(), next(), skip(element), skip(element)会跳过正常iterator里next occurence of the given element。如果skip call n times, 就跳过下面 n个given element，iterator里的elements可以有重复。Refer LC 284 for peek support.
 - system design
 
-## [LinkedIn](linkedin.md)
 
 ## Nuro
 - coding
@@ -169,5 +159,7 @@ pages = get_pages("lyft", 1, 100)
     - [ ] buy and sell stock 
     - [ ] input: char[][] matrix, int i, int j，其中(i, j)相当于matrix上某点，matrix上每char可能是{up, down, right, left, x},其中x有且只有一个 问是否能从（i, j）走到x所在的点. output: boolean
 
+## [LinkedIn](linkedin.md)
+## [citadel](citadel.md)
 ## [Uber](uber.md)
 ## [Lyft](lyft.md)

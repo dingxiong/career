@@ -1,4 +1,6 @@
 2019/2/1 - 2019/5/10
+店面：205, implement Arrays.sort(). I chose to implement quick sort algorithm
+
 - TODO
     - [read atlas](https://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=510610&extra=page%3D73%26filter%3Dauthor%26orderby%3Ddateline%26sortid%3D311%26sortid%3D311%26orderby%3Ddateline)
 - coding
@@ -8,6 +10,8 @@
     - [x] LC 189(in place)
     - [x] LC 205. follow up: input是 a list of words，考虑两种条件，第一种是存在两个word是isomorphic就返回true，第二种是任意两个word都为isomorphic才返回true
     - [ ] 给一个数组，求有多少子集合等于一个给定值
+    - [ ] 实现线程池/ExecutorService，跑需要延时的任务。面试官说答得挺好
+    - [ ] Implement Bounded Blocking Queue
     - [x] 写一个多线程safe的queue. put（T t）如果q满了要等在那里直到有空间put. get（）如果q是空的要等在那里直到有东西get. multiput（List<T> t）put多个element 如果任意时刻q满了要等在那里直到有空间put
         ```java
         BlockingQueue<T> que = new ArrayBlockingQueue<>(capacity);
@@ -120,24 +124,37 @@
         }
         ```    
 - design 
-    - [ ][x2] [design Top K article shared in 5 mins 1 hour 1 day](https://www.bookstack.cn/read/system-design/cn-bigdata-heavy-hitters.md)   
-    - TinyUrl
+    - [x] [xxxx] [design Top K article shared in 5 mins 1 hour 1 day](https://www.bookstack.cn/read/system-design/cn-bigdata-heavy-hitters.md)
+        - step 1: make it work in a single machine with unlimited memory: use a `List<(element, timestamp)>` and `TreeMap<element, count>` 
+        - step 2: make it work in a single machine with limited memory:  Lossy counting algorithm, sticky sampling algorithm
+    - [x] TinyUrl
     - [ ] centralized logging
-    - [Design calendar](https://www.jiuzhang.com/qa/3498/) 可以schedule meeting和invite别人
+    - [ ] [Design calendar](https://www.jiuzhang.com/qa/3498/) 可以schedule meeting和invite别人
     - Design Hangman Game
+    - Design Linkedin
     - Distributed Database System 
     - Key Value Store
-    - 设计二级好友三级好友
-    - delay scheduler
+    - [x] 设计二级好友三级好友. 给定一个int[] getFridend(int user)，O(1) complexity, 求两个users 是不是一级联系，二级联系和三级联系。先在local解，后来问图很大，怎么scale到多个machine上
+        - read paper https://engineering.linkedin.com/real-time-distributed-graph/using-set-cover-algorithm-optimize-query-latency-large-scale-distributed
+            - key points: greedy set cover algorithm
+        - steps
+            1. single machine solution: save edges in mysql directly. and do BFS on the db
+            2. cluster solution: graph db partitioned on multiple machines; cache to store direct, second connections; 
+                - cache initialization/miss: greedy set cover algorithm
+    - [x] delay scheduler 
+        - https://soulmachine.gitbooks.io/system-design/cn/task-scheduler.html
     - 设计trending linkedin share post
+    - [ ] OOD，设计高层电梯调度系统。注意是高层。
     - statistics aggregation system
     - Log Analyzer. 有很多Machine在跑，有各种Log， 非常多，怎么做一个系统收集这些log 并且进行处理，这里重点考虑scalability 和 performance
-    - 给定可用内存的 mini Kafka， 重点考察内存中数据怎么存
+    - [ ] 给定可用内存的 mini Kafka， 重点考察内存中数据怎么存
+        - version 1: single machine in memory: `Map<topic, List<Message>>` and `Map<Consumer, Map<topic, offset>>` producer `add(topic)`, consumer `take(topic)`.
+        - version 2: 
     - 设计一个系统监督和管理领英第三方API的流量
     - 一个Espresso database设计过程中怎么处理hot point的问题，和key的rebalance有关系
     - 全球有好多个data center，如何检测用户的异常登录（例如今天还在亚洲明天就来美洲了），如何防止DoS攻击，不同center怎么样共享学习到的信息——例如黑名单什么的。
-    - [高频] Amazon Product Page. 在SQL里面一个产品有多个图片多个价格的话怎么设计数据库。然后后台提取数值render到页面上得时候，class怎么设计，服务器怎么安排之类的。还有如何suggest product。
+    - [xxxx] Amazon Product Page. 在SQL里面一个产品有多个图片多个价格的话怎么设计数据库。然后后台提取数值render到页面上得时候，class怎么设计，服务器怎么安排之类的。还有如何suggest product。
 - behavior
     - 为毛linkedin,有什么linkedin阔以改进的地方。你的简历go back5 year，都干了什么大事。
-    - talk about Virtual Memeory 
+    - talk about Virtual Memory 
     - https://business.linkedin.com/content/dam/me/business/en-us/talent-solutions/resources/pdfs/linkedin-30-questions-to-identify-high-potential-candidates-ebook-8-7-17-uk-en.pdf

@@ -40,7 +40,7 @@ This is my personal collection of materials for tech interviews.
 ### others
 - core
 	- [x] Fisher–Yates shuffle `LC 519`
-
+	- [x] Reservoir sampling
 
 ## Data structures  
 - core
@@ -73,6 +73,9 @@ Common techniques:
 **Common system design**
 - [x] [rate limiter](system_design/rate_limiter.md)
 - [x] [tiny url](system_design/tinyurl.md)
+- [x] [instgram](system_design/instgram.md)
+- [x] [Delayed scheduler](https://soulmachine.gitbooks.io/system-design/cn/task-scheduler.html)
+- [x] [Messenger](system_design/messenger.md)
 
 ## Resources
 - [How to choose startup](https://www.douban.com/group/topic/4239381/)

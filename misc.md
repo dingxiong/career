@@ -1,12 +1,17 @@
 - Candidate list:
 	- phone interview arranged
-		- LinkedIn, Robinhood, Brex, Jane street, Uber, Houzz, Lyft, Square, dropbox, amazon, Google
-	- recruiter phone arranged
-		- Twitter, Facebook, Netflix, Citadel NXT,
-	- 内推的：
-	 	- snapchat Apple
-	- 网投
-		- Citadel, Pintrest, stripe two sigma, jump trading, DE shaw, 
+		- LinkedIn, Robinhood, Brex, Jane street, Uber, Houzz, Lyft, Square, dropbox, amazon, Google, Citadel NXT
+	- interview reject
+		- Facebook, Netflix, 
+	- no response 
+	 	- snapchat Apple Twitter, Citadel, Pintrest, stripe, two sigma, jump trading, DE shaw, 
+	
+	workday, 
+
+总结。
+1. 金融公司特别喜欢问netword, multithreading, c++ 的问题。所以千万不要在简历里面写自己会这些。
+2. java 的 concurrency 代码库其实写的很好，是一个很好的学习资源。自己应该自己看看 implemenation.
+3. networking 这一块真的不熟悉。可以找本书仔细学习一下。
 
 - left work
 	- two week notice

@@ -1,8 +1,8 @@
 - coding
     - [x] LC easy 572
     - [x] LC medium 33, 49, 200, 227
-    - [x] LC hard
-    - [ ] LC 4, 10, 24, 25, 31, 43 48 123 174, 188, 743 65, 304, 341 759, 767 785
+    - [x] LC hard 174
+    - [ ] LC 4, 10, 24, 25, 31, 43 48 123 , 188, 743 65, 304, 341 759, 767 785
     - [ ] LRU follow up 問了假如 input很大怎麼辦
     - [ ] 写 quick sort
     - [ ] 给一个二叉树，每次print所有leaf，然后delete所有leaf，直到删掉root
@@ -61,6 +61,6 @@
         }
         ```   
 - system design
-    - [ ] Shorten URL System Design    
+    - [x] Shorten URL System Design    
     - [ ] design一个search
-    - 设计一个notify system. 给你一个API notify，call的时候会直接notify，然后给一大堆request，要求延时notify. 先设计整个Amazon alexa系统，然后做notification的OOD
+    - [ ] 设计一个notify system. 给你一个API notify，call的时候会直接notify，然后给一大堆request，要求延时notify. 先设计整个Amazon alexa系统，然后做notification的OOD
