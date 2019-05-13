@@ -1,17 +1,17 @@
 page 1: 151
 - coding
-    - [x] LC easy: 3, 17, 20, 22, 33, 34, 35, 36, 88, 101, 122, 160, 438
-    - [x] LC medium: 40, 49, 56, 62, 75, 79, 86, 98, 127, 138, 139, 173, 200, 206, 207, 208, 210, 221, 227, 253, 267, 279, 287, 300, 1014,
-    - [x] LC hard: 37, 42，68, 72, 76, 126, 128, 140, 158, 212, 239, 295 297 895
-    - [ ] LC 164, 289, 301, 304 305 329 332, 341 349, 353 362 380 381 385 399  410, 450 465, 518, 528, 529 625, 636, 694, 741, 427, 730, 745 759, 773, 921, 978, 979, 986
-    - [ ] LC 736  815 640 658 465 359 947 785
+    - [x] LC easy: 3, 17, 20, 22, 33, 34, 35, 36, 88, 101, 122, 160, 349 438
+    - [x] LC medium: 40, 49, 56, 62, 75, 79, 86, 98, 127, 138, 139, 173, 200, 206, 207, 208, 210, 221, 227, 253, 267, 279, 287, 300 332 341 353 362 380, 385, 399, 450, 694 1014,
+    - [x] LC hard: 37, 42，68, 72, 76, 126, 128, 140, 158, 212, 239, 295 297 381 465 730 895
+    - [ ] LC 164, 745 773 289, 301, 304 305 329 410 518, 528, 529 625, 636 , 427, 921, 978, 979, 986 815
+    - [ ] LC 736 640 658 359 947 785
+    - [ ] LC todo 741 759
     - [ ] LC next permutation, calculator I, intersect/untion two lists of intervals, merge interval, skyline, alien dictionary, 
     - [ ] LC 2D Trapping Rainwater, 3D Trapping Rainwater
     - [ ] LC hit count、find k closest element、 surrounded region, Design Hit Counter, coin change 2
     - [ ] LC 字符棋盘中找能匹配上的words
     - [ ] LC 给一个almost sorted array，求index i,j 使得如果i,j 之间的元素全排序好了，那整个array也排序好了
     - [ ] Reconstruct itinerary. Follow up: return deepest path in DAG with different starting nodes
-    - [ ] N 个朋友去饭店吃饭，结账时需要平摊吃饭的开销，然而每个人实际付的钱是不平均的，比如，输入是每个人实际付的钱array [5, 10, 12, 15, 3], 求写代码，算出来每个人要给其他人多少钱，才能平摊开销。按照我上面的例子，每个人的平均开销应该是（5+10+12+15+3）/5 =9，如果这五个人分别用A，B，C，D，E表示。那么，A要付1刀给B. A要付3刀给C，E要付6刀给D. Follow Up 求最少transaction使得互相之间不欠钱
     - [ ] 打印所有的不小于某个数的Jumping Number.   Jumping Number 就是相邻位数之间差绝对值为1. 比如打印所有不小105的Jumping Number就是  0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 21, 23, 32, 34, 43, 45, 54, 56, 65, 67, 76, 78, 87, 89, 98, 101 其实就是BFS/DFS 遍历二叉树. Follow up 是打印某个区别的Jumping Numbers
     - [ ] 判断围棋一个棋子有没有被围 - 第一问写个helper function. follow up: 判断围棋的一片棋子有没有被围 - 用BFS就可以了.
     - [ ] find all meetings that conflicts. Ex. input = [[2,3, 'a'], [1,4,'b'], [3,5,'c']], output = [['a', 'b'], ['b', 'c']]
@@ -32,12 +32,35 @@ page 1: 151
         ```
     - [x] Given an array, return kth most frequent element
          => use a Map: num -> count, and then squash them into a priority queue.
+    - [x] N 个朋友去饭店吃饭，结账时需要平摊吃饭的开销，然而每个人实际付的钱是不平均的，比如，输入是每个人实际付的钱array [5, 10, 12, 15, 3], 求写代码，算出来每个人要给其他人多少钱，才能平摊开销。
+        按照我上面的例子，每个人的平均开销应该是（5+10+12+15+3）/5 =9，如果这五个人分别用A，B，C，D，E表示。那么，A要付1刀给B. A要付3刀给C，E要付6刀给D. 
+        Follow Up 求最少transaction使得互相之间不欠钱 => LC 465
+        ```java
+        List<int[]> split(int[] pay) {
+            int n = pay.length;
+            int sum = 0;
+            for (int i = 0; i < n; i++) sum += pay[i];
+            int each = sum / n;
+            for (int i = 0; i < n; i++) pay[i] -= each;
+
+            List<int[]> result = new ArrayList<>();
+            for (int i = 0; i < n; i++) {
+                if (pay[i] == 0) continue;
+                int j = i + 1;
+                while (pay[j] * pay[i] > 0) j++;
+                result.add(new int[]{i, j, pay[i]});
+                pay[j] += pay[i];
+                pay[i] = 0;
+            }
+            return result;
+        }
+        ```         
 
 - system design
     - [设计uber](https://www.youtube.com/watch?v=umWABit-wbk&t=1293s)
     - design chat service
     - design youtube
-    - 设计Instagram, ex. upload photo,  get feeds等等
+    - [x] 设计Instagram, ex. upload photo,  get feeds等等
     - 设计一个expedia
     - 设计monitor(比如cloudwatch)系统
     - DesignDropbox 所有的System Design会问的都会问 (storage/scale/requirements etc) 会特别问如何解决 conflicts/concurrency (记得看看lamport clock) 然后要想想存data本身跟存储meta data之间怎么协调
@@ -46,7 +69,7 @@ page 1: 151
     - 设计一个uber eats的menu storage system。当然还设计一些如何把这个system应用在整个product中的问题。
     - 设计一个高并发的在线售票系统，从user case，QPS，前端，到database全说了一遍。followup：如果售票系统还要加个新功能，用户选座位时候可以hold 5分钟，在这个时间段其他用户看这张票是sold out，整个系统该怎么改？
     - design ticket master，问题很多。关键点应该就是如何支持秒杀
-    - design rate limiter.
+    - [x] design rate limiter.
     - tiny url
     - Design Whatsapp
     - 设计一个即时通讯系统，类似于微信这样。

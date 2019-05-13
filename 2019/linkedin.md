@@ -1,27 +1,37 @@
-2019/2/1 - 2019/4/29
+2019/2/1 - 2019/5/10
 - TODO
     - [read atlas](https://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=510610&extra=page%3D73%26filter%3Dauthor%26orderby%3Ddateline%26sortid%3D311%26sortid%3D311%26orderby%3Ddateline)
 - coding
-    - [x] LC easy: 53, 69, 100, 170, 198, 270, 339, 716
-    - [x] LC medium: 3, 33, 46, 50, 56, 114, 127, 142, 150, 152, 156, 187, 200, 213, 236, 243, 244, 245, 254, 277, 
-    - [x] LC hard: 23, 42, 72, 149, 265, 272, 352, 715,
+    - [x] LC easy: 53, 69, 100, 136, 170, 198, 256 270, 339, 605 671 716
+    - [x] LC medium: 3, 33, 46, 50, 56, 114, 127, 142, 150, 152, 156, 187, 200, 213, 236, 243, 244, 245, 254, 277, 341 364, 366 380, 384 416 516 611 612 698 776
+    - [x] LC hard: 23, 42, 65 72, 146, 149, 265, 272, 352, 381, 432 460 715 895 973
     - [x] LC 189(in place)
     - [x] LC 205. follow up: input是 a list of words，考虑两种条件，第一种是存在两个word是isomorphic就返回true，第二种是任意两个word都为isomorphic才返回true
-    - [ ] LC 341(不准用额外空间), 460, 
-    - [ ] LC 671, 416, 973, 895, 776, 698, 364, 380, 381, 384, 432, 605, , 611, 366, 612
-    - [ ] LC 256 followup， 如果是k种颜色呢？
-    - [ ] LC 381 follow up 多线程
-    - [ ] LRU Cache
-    - [ ] LC 68 输入的除了行宽还有一组字体大小，要求选择最大可用的字体，并输出排版结果。最大可用字体的意思就是，例如有一个单词特别长，abcdefghijklmn，这个单词不能拆到两行里面去
-    - [x] 打印二叉树每一层的叶子节点
-    - [x] 给一个类，创建时给个字符串，要求类里写一个方法，给两个字母，算在字符串中最短距离
-    - [ ] 给一个string返回最长回文子串
     - [ ] 给一个数组，求有多少子集合等于一个给定值
-    - [ ] 在一个递增的数组中，中间有若干数字丢失了，问你第K个不见的数字是多少。。例如【2,3,5,8,9】，k=1 返回4， k=3 返回7
-    - [ ] 给个String，判断是不是个valid number。看着很简单，但edge case还挺多的
-    - [ ] 写一个数据结构 支持 add(key), remove(key), removeRandomKey() 并且每个操作都是 O(1)
-    - [ ] 实现一个interface 支持两个method addNumber(int from, int to) 会create一个Interval; getTotalLength: return current cover length 重复的只能算一次; 有点像range module.
-    - [ ] 写一个多线程safe的queue. put（T t）如果q满了要等在那里直到有空间put. get（）如果q是空的要等在那里直到有东西get. multiput（List《T》 t）put多个element 如果任意时刻q满了要等在那里直到有空间put
+    - [x] 写一个多线程safe的queue. put（T t）如果q满了要等在那里直到有空间put. get（）如果q是空的要等在那里直到有东西get. multiput（List<T> t）put多个element 如果任意时刻q满了要等在那里直到有空间put
+        ```java
+        BlockingQueue<T> que = new ArrayBlockingQueue<>(capacity);
+        void put(T t) {
+            que.put(t);
+        }
+        T get() {
+            que.take();
+        }
+        void multiPut(List<T> ts) {
+            for (T t : ts) que.put(t);
+        }
+        ```
+    - [x] 在一个递增的数组中，中间有若干数字丢失了，问你第K个不见的数字是多少。。例如【2,3,5,8,9】，k=1 返回4， k=3 返回7
+        ```java
+        int findK(int[] a, int k) {
+            int n = a.length;
+            for (int i = 1, mis = 0; i < n; i++) {
+                mis += a[i] - a[i-1] - 1;
+                if (mis >= k) return a[i] - (mis - k) - 1;
+            }
+            return a[n-1] + (k - mis);
+        }
+        ```
     - [x] 给了3个java class， 一个streamer reader class, 一个stream object class, stream object 有rank. 写一个cache, 如果reach一定capacity，pop出rank最小的。
         ```java
         public class RetainBestCache<K, T extends Rankable> {
@@ -80,9 +90,39 @@
             }
         }
         ```
+    - [x] design a class to insert interval [from, to), and get the total covered length. 重复的只能算一次
+        ```java
+        private TreeMap<Integer, Integer> inters = new TreeMap<>();
+        private int totalLen;
+
+        /** Adds an interval [from, to) into an internal structure. */
+        void addInterval(int from, int to) {
+            Integer low = inters.floorKey(from);
+            Map<Integer, Integer> subMap;
+            if (low == null) subMap = inters.headMap(to, true);
+            else subMap  = inters.subMap(low, true, to, true);
+            Set<Integer> keys = new TreeSet<>(subMap.keySet());
+            for (int k : keys) {
+                int v = inters.get(k);
+                if (intersect(k, v, from, to)) {
+                    from = Math.min(from, k);
+                    to = Math.max(to, v);
+                    inters.remove(k);
+                    totalLen -= v - k;
+                }
+            }
+            inters.put(from, to);
+            totalLen += to - from; System.out.println(inters + "; len:" + totalLen);
+        }
+
+        int getTotalCoveredLength() {
+            return this.totalLen;
+        }
+        ```    
 - design 
-    - [design Top K article shared in 5 mins 1 hour 1 day](https://www.bookstack.cn/read/system-design/cn-bigdata-heavy-hitters.md)   
+    - [ ][x2] [design Top K article shared in 5 mins 1 hour 1 day](https://www.bookstack.cn/read/system-design/cn-bigdata-heavy-hitters.md)   
     - TinyUrl
+    - [ ] centralized logging
     - [Design calendar](https://www.jiuzhang.com/qa/3498/) 可以schedule meeting和invite别人
     - Design Hangman Game
     - Distributed Database System 
@@ -96,7 +136,7 @@
     - 设计一个系统监督和管理领英第三方API的流量
     - 一个Espresso database设计过程中怎么处理hot point的问题，和key的rebalance有关系
     - 全球有好多个data center，如何检测用户的异常登录（例如今天还在亚洲明天就来美洲了），如何防止DoS攻击，不同center怎么样共享学习到的信息——例如黑名单什么的。
-    - [高频] Amazon Product Page. 分析表之间的关系
+    - [高频] Amazon Product Page. 在SQL里面一个产品有多个图片多个价格的话怎么设计数据库。然后后台提取数值render到页面上得时候，class怎么设计，服务器怎么安排之类的。还有如何suggest product。
 - behavior
     - 为毛linkedin,有什么linkedin阔以改进的地方。你的简历go back5 year，都干了什么大事。
     - talk about Virtual Memeory 

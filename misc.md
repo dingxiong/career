@@ -1,14 +1,12 @@
 - Candidate list:
 	- phone interview arranged
-		- LinkedIn, Robinhood, Brex, Jane street, Uber, Houzz
+		- LinkedIn, Robinhood, Brex, Jane street, Uber, Houzz, Lyft, Square, dropbox, amazon, Google
 	- recruiter phone arranged
-		- Twitter, Google, Facebook, , Square, Lyft
+		- Twitter, Facebook, Netflix, Citadel NXT,
 	- 内推的：
-	 	- snapchat?, Apple, Netflix?
-	- LinkedIn 联系的
-		- Citadel NXT,
+	 	- snapchat Apple
 	- 网投
-		- Citadel, Pinterest, two sigma, jump trading, DE shaw, dropbox, 
+		- Citadel, Pintrest, stripe two sigma, jump trading, DE shaw, 
 
 - left work
 	- two week notice

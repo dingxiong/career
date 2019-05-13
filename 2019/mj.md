@@ -5,27 +5,55 @@ system design https://www.1point3acres.com/bbs/forum.php?mod=forumdisplay&fid=32
 https://juejin.im/post/5ba63910e51d450e576703a1
 
 
-## Facebook 
-- coding
-    - [FB Onsite 2019](https://docs.google.com/spreadsheets/d/1-9Jx6rgUj40xxEtJzRqmGkXoW1QBgsO4CipRMQV2mA8/edit#gid=1531713026)
-    - LC 726, 314, 463, 
-    - LC 246, 247
-    - LC 3, 463
-    - LC 158
-    - LC 简易版 65（只允许数字 小数点 正负号）
-    - 两两交换链表的node
-    - For a cycle-linked list, which is sorted, given a node from this list and a target value,
-        insert a new node after given node, to make sure the new list is still sorted. example1: 
-        -> 1 -> 2 -> 3, given 2 and target value 3, insert 3 after 2, 
-        new list is: -> 1 -> 2 -> 3 -> 3
-    example2: -> 1 -> 2 -> 3, given 2 and target value 1, new list is: -> 1 -> 1-> 2 -> 3
-    https://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=517238&extra=page%3D24%26filter%3Dauthor%26orderby%3Ddateline%26sortid%3D311%26sortid%3D311%26orderby%3Ddateline
-- system design
-    - design instagram
-    - 设计100K的web服务器到10K(1000qps)搜索服务器的最佳通讯方式，利用load balancer或者message queue来做
-    - 设计类似利口的做题网站，每天可以提供若干次竞赛，用户需要注册之后登陆然后提交代码，关键是要快速列出ranking page
 
+## distributed KV store
+key concept: 
+- consistent hashing
+- p2p architecture (gossip protocol), eg. Cassandra VS master-slave architecture
+    - p2p: no single point of failure, no leader election, 
+    - cons: only eventual consistency
 
+## design instgram
+- requirement
+    - user can register on instgram 
+    - user can follow others
+    - user can post photos with descriptions
+    - user can view his/her home page timeline posts
+- Schema
+    - users (id, email, username, created_at)  index: email;
+    - followers (id, follower_id, followee_id, created_at) index: follower_id; followee_id;
+    - posts (id, user_id, post_ts, description, media_url) index: (user_id, post_ts)
+- follow up
+    - image storage: S3 + CDN
+    - pull vs push
+        - pull requires periodically looking up for updates => stale homepage time or large load on server
+        - push may be bad for celebrities who have 1m+ followers.
+
+Ruby script to grep 1point3acres
+```ruby
+def contain_key(keyword, file_name)
+  match = keyword + "</font>"
+  File.read(file_name).encode!('UTF-8', 'binary', invalid: :replace, undef: :replace, replace: '').downcase.include?(match)
+end
+
+def get_pages(keyword, from, to)
+  page_nums = []
+  template = "https://www.1point3acres.com/bbs/forum.php?mod=forumdisplay&fid=145&orderby=dateline&sortid=311&orderby=dateline&sortid=311&filter=author&page="
+  (from..to).each do |num| 
+    url = "\"" + template + num.to_s + "\" " # double quote around string cannot be omitted
+    file_name = "out.html"
+    cmd = "wget #{url} -O #{file_name} -o log.txt"
+    `#{cmd}`
+    if (contain_key(keyword, file_name))
+      puts "found page #{num}" 
+      page_nums << num
+    end
+  end
+  page_nums
+end
+
+pages = get_pages("lyft", 1, 100)
+```
 
 ## Google
 - coding
@@ -40,6 +68,13 @@ https://juejin.im/post/5ba63910e51d450e576703a1
 - system design
 
 ## [LinkedIn](linkedin.md)
+
+## Nuro
+- coding
+    - [ ] LC 64, 778
+    - [ ] LC calculator II, 227, 451
+    - [ ] 平面上一堆坐标，类型是浮点，要求返回有没有任意两个点之间的距离是小于根号2的. 
+        use hashmap ?? if |(x1, y1) - (x2, y2)| < sqrt(2) => at least |x1-x2| < 1 or |y1-y2| < 1 is true.
 
 ## Robinhood (2018/9/19 - 2019/5/1)
 - coding
@@ -135,15 +170,4 @@ https://juejin.im/post/5ba63910e51d450e576703a1
     - [ ] input: char[][] matrix, int i, int j，其中(i, j)相当于matrix上某点，matrix上每char可能是{up, down, right, left, x},其中x有且只有一个 问是否能从（i, j）走到x所在的点. output: boolean
 
 ## [Uber](uber.md)
-
-
-## Microsoft
-    - lc 752   
-    - lc 361. Bomb Enemy
-    - lc 81. Search in Rotated Sorted Array
-
-
-1. 设计一个洗衣房系统（亚麻）
-2. 设计一个停车场推荐系统（根据client所在位置，推荐一个附近的停车场，使得停车场效率比较高） 
-3. poll 模式与 push模式的区别？ 我是从 数据一致性、latency、cash命中效率等方面解答的，供参考。 （亚麻）
-4. 设计一个比较通用的监控系统    
+## [Lyft](lyft.md)

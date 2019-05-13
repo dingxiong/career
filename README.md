@@ -2,6 +2,11 @@ This is my personal collection of materials for tech interviews.
 
 ## Algorithms
 
+### Array related
+- core
+	- [x] quick select
+	- [x] rainbow sort
+
 ### string matching
 - core
 	- [ ] KMP
@@ -62,6 +67,13 @@ System design steps:
 Common techniques:
 - [ ] Solr vs Elasticsearch, reverse indexing
 - [ ] sharding, partitioning
+- [x] push vs pull
+- [x] consistent hashing (cassandra), p2p vs master-slave
+
+**Common system design**
+- [x] [rate limiter](system_design/rate_limiter.md)
+- [x] [tiny url](system_design/tinyurl.md)
+
 ## Resources
 - [How to choose startup](https://www.douban.com/group/topic/4239381/)
 - [Guide to Equity & IPOs](https://blog.wealthfront.com/equity-ipo-guide/)  
