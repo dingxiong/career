@@ -1,0 +1,15 @@
+## design instgram
+- requirement
+    - user can register on instgram 
+    - user can follow others
+    - user can post photos with descriptions
+    - user can view his/her home page timeline posts
+- Schema
+    - users (id, email, username, created_at)  index: email;
+    - followers (id, follower_id, followee_id, created_at) index: follower_id; followee_id;
+    - posts (id, user_id, post_ts, description, media_url) index: (user_id, post_ts)
+- follow up
+    - image storage: S3 + CDN
+    - pull vs push
+        - pull requires periodically looking up for updates => stale homepage time or large load on server
+        - push may be bad for celebrities who have 1m+ followers.

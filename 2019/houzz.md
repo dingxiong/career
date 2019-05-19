@@ -4,9 +4,9 @@
     - [x] LC hard 174
     - [ ] LC 4, 10, 24, 25, 31, 43 48 123 , 188, 743 65, 304, 341 759, 767 785
     - [ ] LRU follow up 問了假如 input很大怎麼辦
-    - [ ] 写 quick sort
-    - [ ] 给一个二叉树，每次print所有leaf，然后delete所有leaf，直到删掉root
-    - [ ] [rainbow sort](https://starllap.space/2017/06/23/LintCode-Rainbow-Sort/)
+    - [x] 写 quick sort
+    - [x] 给一个二叉树，每次print所有leaf，然后delete所有leaf，直到删掉root
+    - [x] [rainbow sort](https://starllap.space/2017/06/23/LintCode-Rainbow-Sort/)
     - [ ] 给一个string  a_b_c 或者 (a_b_c)_d_(e_f_g) 转换成binary tree
     - [ ] 给你一串字母string(lower case letter)，求出他在所有permutation里按字母顺序排列的序号，允许有duplication
     - [ ] 给一个range 1-n,如果n=5给出a = [2,3,1,4,5],b由a得出，从位于当前数字index后面的数中，数出比当前数字小的个数，所以b = [1,1,0,0,0]。然后现在知道b反推a

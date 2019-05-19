@@ -128,12 +128,21 @@
         - step 1: make it work in a single machine with unlimited memory: use a `List<(element, timestamp)>` and `TreeMap<element, count>` 
         - step 2: make it work in a single machine with limited memory:  Lossy counting algorithm, sticky sampling algorithm
     - [x] TinyUrl
-    - [ ] centralized logging
-    - [ ] [Design calendar](https://www.jiuzhang.com/qa/3498/) 可以schedule meeting和invite别人
+    - [x] [Design calendar](https://www.jiuzhang.com/qa/3498/) 可以schedule meeting和invite别人
+        - schemas: 
+            - users
+            - events(id, owner, type(one time, recurrent, etc), event_start_time, event_end_time, location, ....)
+            - event_users(id, event, user_id, status(yes/no/maybe), ...)
+        - Demon process maintain a priority queue (event_id, event_start_time) storing the events happen in next hour. 
+            - demon listens to mutations published by `events` table
+            - demon scan events table every 40 minutes.
+        - follow up
+            - scale PQ: shard it by event_id
+            - failure recover: scan events table at reboot
     - Design Hangman Game
     - Design Linkedin
-    - Distributed Database System 
-    - Key Value Store
+    - [x] Distributed Database System
+    - [x] Key Value Store
     - [x] 设计二级好友三级好友. 给定一个int[] getFridend(int user)，O(1) complexity, 求两个users 是不是一级联系，二级联系和三级联系。先在local解，后来问图很大，怎么scale到多个machine上
         - read paper https://engineering.linkedin.com/real-time-distributed-graph/using-set-cover-algorithm-optimize-query-latency-large-scale-distributed
             - key points: greedy set cover algorithm
@@ -146,11 +155,20 @@
     - 设计trending linkedin share post
     - [ ] OOD，设计高层电梯调度系统。注意是高层。
     - statistics aggregation system
-    - Log Analyzer. 有很多Machine在跑，有各种Log， 非常多，怎么做一个系统收集这些log 并且进行处理，这里重点考虑scalability 和 performance
-    - [ ] 给定可用内存的 mini Kafka， 重点考察内存中数据怎么存
+    - [ ] 对于query 高效的返回某个key在数据库中出现的所有位置, 出现次数是否大于k
+    - [x] centralized logging. Log Analyzer. 有很多Machine在跑，有各种Log， 非常多，怎么做一个系统收集这些log 并且进行处理，这里重点考虑scalability 和 performance
+    - [x] 给定可用内存的 mini Kafka， 重点考察内存中数据怎么存
         - version 1: single machine in memory: `Map<topic, List<Message>>` and `Map<Consumer, Map<topic, offset>>` producer `add(topic)`, consumer `take(topic)`.
         - version 2: 
-    - 设计一个系统监督和管理领英第三方API的流量
+    - [x] 设计一个系统监督和管理领英第三方API的流量 收集host的1second，1minute，1hour metrics。如何scale，如果是10000 hosts怎么收集。
+        - Log Shipper, Log index, storage, UI,
+        - ELK Stack: Elasticsearch, Logstash, Kibana
+        - resources
+            - http://artemstar.com/2017/03/11/logging-system-pipeline/
+            - datadog architecture 
+                - https://docs.google.com/presentation/d/1yxcg4DdC-Uss1zh_lhtSWXICn7g-5udJN0XaV2oRaj4/pub?start=false&loop=false&delayms=3000&slide=id.g177c50456_018
+                - https://docs.datadoghq.com/graphing/functions/
+
     - 一个Espresso database设计过程中怎么处理hot point的问题，和key的rebalance有关系
     - 全球有好多个data center，如何检测用户的异常登录（例如今天还在亚洲明天就来美洲了），如何防止DoS攻击，不同center怎么样共享学习到的信息——例如黑名单什么的。
     - [xxxx] Amazon Product Page. 在SQL里面一个产品有多个图片多个价格的话怎么设计数据库。然后后台提取数值render到页面上得时候，class怎么设计，服务器怎么安排之类的。还有如何suggest product。

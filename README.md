@@ -54,6 +54,7 @@ This is my personal collection of materials for tech interviews.
 		- array representation similar to heap
 - extended
 	- [x] B-Tree
+	- [x] Log-structured merge-tree (LSM)
 	- [x] Suffix tree
 	- [ ] Skip list
 
@@ -70,12 +71,7 @@ Common techniques:
 - [x] push vs pull
 - [x] consistent hashing (cassandra), p2p vs master-slave
 
-**Common system design**
-- [x] [rate limiter](system_design/rate_limiter.md)
-- [x] [tiny url](system_design/tinyurl.md)
-- [x] [instgram](system_design/instgram.md)
-- [x] [Delayed scheduler](https://soulmachine.gitbooks.io/system-design/cn/task-scheduler.html)
-- [x] [Messenger](system_design/messenger.md)
+## [System design](system_design/README.md)
 
 ## Resources
 - [How to choose startup](https://www.douban.com/group/topic/4239381/)
@@ -84,6 +80,7 @@ Common techniques:
 - Look up info about startups
 	- [crunchbase](https://www.crunchbase.com) 
 	- [Angel list](https://angel.co/)
+	- https://breakoutlist.com/
 	- search on blind. Follow topic `Startups`
 - https://techcrunch.com/
 

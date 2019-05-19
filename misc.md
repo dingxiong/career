@@ -1,6 +1,6 @@
 - Candidate list:
 	- phone interview arranged
-		- LinkedIn, Robinhood, Brex, Jane street, Uber, Houzz, Lyft, Square, dropbox, amazon, Google, Citadel NXT
+		- LinkedIn, Brex, Jane street, Citadel NXT, Robinhood Uber Houzz, Lyft, Square, dropbox, amazon, Google, 
 	- interview reject
 		- Facebook, Netflix, 
 	- no response 

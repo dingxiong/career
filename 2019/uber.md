@@ -1,9 +1,10 @@
 page 1: 151
 - coding
     - [x] LC easy: 3, 17, 20, 22, 33, 34, 35, 36, 88, 101, 122, 160, 349 438
-    - [x] LC medium: 40, 49, 56, 62, 75, 79, 86, 98, 127, 138, 139, 173, 200, 206, 207, 208, 210, 221, 227, 253, 267, 279, 287, 300 332 341 353 362 380, 385, 399, 450, 694 921 1014,
-    - [x] LC hard: 37, 42，68, 72, 76, 126, 128, 140, 158, 212, 239, 295 297 381 465 730 759 895
-    - [ ] LC 164, 745 773 289, 301, 304 305 329 410 518, 528, 529 625, 636 427 978, 979, 986 815
+    - [x] LC medium: 40, 49, 56, 62, 75, 79, 86, 98, 127, 138, 139, 173, 200, 206, 207, 208, 210, 221, 227, 253, 267, 279, 287, 300 304 332 
+        341 353 362 380, 385, 399, 450, 528 694 921 1014,
+    - [x] LC hard: 37, 42，68, 72, 76, 126, 128, 140, 158, 212, 239, 295 297 305 329 381 465 730 759 895
+    - [ ] LC 32 164, 745 773 289, 301 410 518 529 625, 636 427 978, 979, 986 815 772 
     - [ ] LC 736 640 658 359 947 785
     - [ ] LC todo 741
     - [ ] LC next permutation, calculator I, intersect/untion two lists of intervals, merge interval, skyline, alien dictionary, 
@@ -58,8 +59,7 @@ page 1: 151
 
 - system design
     - [设计uber](https://www.youtube.com/watch?v=umWABit-wbk&t=1293s)
-    - design chat service
-    - design youtube
+    - [x] design youtube
     - [x] 设计Instagram, ex. upload photo,  get feeds等等
     - 设计一个expedia
     - 设计monitor(比如cloudwatch)系统
@@ -71,8 +71,10 @@ page 1: 151
     - design ticket master，问题很多。关键点应该就是如何支持秒杀
     - [x] design rate limiter.
     - [x] tiny url
-    - Design Whatsapp
-    - 设计一个即时通讯系统，类似于微信这样。
+    - [x] Design Whatsapp
+    - [x] 设计一个即时通讯系统，类似于微信这样。
+    - [ ] design uber
+    - [ ] best seller page of Amazon. 
     - design heat map
     - design uber eat app. 打开以后显示地图与附近n个商家。讨论app跟server应有哪些api，一次传送多少商家比较合理，如何分地理区，资料库table该如何设计，如何scale，single point failure。面官应该就是做这的，特别熟，节奏都是他主动带着走，他问一个功能或情境，我回答。最后问我如果server全挂了怎么办，我说不管配置多少master-slave全挂嘛？他说是，我说那无解啦。他说没错，他们前几周才刚遇到过.
     - design 一个online 游戏，自己任意选一个游戏，聊infra，聊software设计，给state转换，给server的proto
