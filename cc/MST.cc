@@ -90,6 +90,7 @@ int main(){
 	make_tuple(7, 8, 7),
 	make_tuple(8, 6, 6),
 	make_tuple(8, 2, 2),
+	make_tuple(7, 6, 1),
 	make_tuple(2, 5, 4),
 	make_tuple(2, 3, 7),
 	make_tuple(5, 6, 2),
@@ -110,8 +111,5 @@ int main(){
 	sum += w;
     }
     cout << "cost : " <<  sum << endl;
-    // our result is different from the answer in the picture but with equal
-    // total cost.
-
     return 0;
 }
