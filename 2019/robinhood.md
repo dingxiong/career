@@ -1,24 +1,8 @@
 (2018/9/19 - 2019/5/1)
 - coding
-    - [x] LC 54, 59, 140, 418
-    - [ ] LC 224 Basic Calculator 3,
+    - [x] LC 54, 59, 140, 224 418 
     - [ ] 给一个数组，找这个数组的某个区间使得区间的中位数最大
-    - [ ] 写一个function来算input的mean max min等等
-    - [ ] 简化版的calculator，只含有括号，加和乘, 类似LC773
-        "((1+2)*3)" -> 9
-        operators: + *
-        operands: 0-9
-        Arbitrarily nested parenthesis 
-
-        "((1+2)*((1+((2)))*3))": Valid
-        "(((4)))"
-        Always balanced
-
-        "(1+2*3)"" -> Not allowed
-        "(1+(2*3))" -> 7
-
-
-        ((1+2)*3)
+    - [x] 写一个function来算input的mean max min等等
     - [x] [bank account transfer problem](http://web.mit.edu/6.005/www/fa15/classes/23-locks/#locking)
         java sync pattern
         ```java
