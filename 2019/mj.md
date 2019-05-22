@@ -47,8 +47,11 @@ Kafka is a distributed streaming platform
 Ruby script to grep 1point3acres
 ```ruby
 def contain_key(keyword, file_name)
-  match = keyword + "</font>"
-  File.read(file_name).encode!('UTF-8', 'binary', invalid: :replace, undef: :replace, replace: '').downcase.include?(match)
+    content = File.readlines(file_name)
+                .select {|line| line.include?("#666")} ## the color of the date of the label row
+                .map {|line| line.force_encoding('gb2312').encode('UTF-8').downcase } # correct the encoding
+    # content.any? { |line| line.include?(keyword) }
+    content.any? { |line| line.include?(keyword) }
 end
 
 def get_pages(keyword, from, to)
@@ -67,5 +70,5 @@ def get_pages(keyword, from, to)
   page_nums
 end
 
-pages = get_pages("lyft", 1, 100)
+pages = get_pages("lyft", 1, 10)
 ```

@@ -1,3 +1,4 @@
+## Uber 
 Uber is a ride sharing platform
 - use case:
     - rider request a driver: (rider_id, rider_loc, destination, car type)
@@ -22,3 +23,9 @@ Uber is a ride sharing platform
         - Contraction Hierarchies (preprocessing) + Dijkstra
             - reference: https://www.fmi.uni-stuttgart.de/files/alg/teaching/s15/alg/CH.pdf
         -  
+
+## Uber eats
+- components: 
+    - eater app
+    - restaurant administrative panel
+    - map app for deliver guys

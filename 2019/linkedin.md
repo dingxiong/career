@@ -1,5 +1,6 @@
 2019/2/1 - 2019/5/10
 店面：205, implement Arrays.sort(). I chose to implement quick sort algorithm
+feedback: explain the solution before jumping into it.
 
 - TODO
     - [read atlas](https://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=510610&extra=page%3D73%26filter%3Dauthor%26orderby%3Ddateline%26sortid%3D311%26sortid%3D311%26orderby%3Ddateline)

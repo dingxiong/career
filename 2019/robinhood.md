@@ -1,7 +1,7 @@
 (2018/9/19 - 2019/5/1)
 - coding
-    - [x] LC 54, 59, 
-    - [ ] LC 140, 418, 224 Basic Calculator 3,
+    - [x] LC 54, 59, 140, 418
+    - [ ] LC 224 Basic Calculator 3,
     - [ ] 给一个数组，找这个数组的某个区间使得区间的中位数最大
     - [ ] 写一个function来算input的mean max min等等
     - [ ] 简化版的calculator，只含有括号，加和乘, 类似LC773
@@ -19,7 +19,26 @@
 
 
         ((1+2)*3)
-    - [ ] [bank account transfer problem](http://web.mit.edu/6.005/www/fa15/classes/23-locks/#locking)
+    - [x] [bank account transfer problem](http://web.mit.edu/6.005/www/fa15/classes/23-locks/#locking)
+        java sync pattern
+        ```java
+        public synchronized void decrement() {} 
+        ```
+        ```java
+        synchronized(this) {
+            ....
+        }
+        ```
+        ```java
+        Lock lock = new ReentrantLock();
+        lock.lock();
+        try {
+            ...
+        } finally {
+            lock.unlock();
+        }
+        ```
+
         ```python
         def bad_transfer(src_account, dst_account, amount): 
             src_cash = src_account.cash # DB read
@@ -32,7 +51,7 @@
          
             dst_account.send_dst_transfer_email()
         ```
-    - [x] ![Degree of an array](rh1.jpeg)
+    - [x] ![Degree of an array](./robinhood/rh1.jpeg)
         ```java
         int degreeOfArray(int[] array) {
             Map<Integer, Integer> counts = new HashMap<>();
@@ -54,7 +73,7 @@
             return minLen + 1;
         }
         ```
-    - [x] ![word wrap](rh2.jpeg)
+    - [x] ![word wrap](./robinhood/rh2.jpeg)
         ```java
         List<String> wordWrap(String words, int k) {
             List<String> result = new ArrayList<>();
@@ -74,7 +93,7 @@
             return result;
         }
         ```
-    - [x] ![returns on investments](rh3_a.jpeg) ![part_b](rh3_b.jpeg)
+    - [x] ![returns on investments](./robinhood/rh3_a.jpeg) ![part_b](./robinhood/rh3_b.jpeg)
 
 - System design
     - message app for families。需要考虑产品功能，UI设计，API设计以及后台的Data Model
