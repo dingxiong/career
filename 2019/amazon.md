@@ -1,7 +1,8 @@
 - 2019/4/24
 - coding
     OA
-    - [ ] LC 937 1380
+    - [x] LC easy: 937
+    - [ ] LC 
     - subsets
     - implement trie
     - 26进制转换

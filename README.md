@@ -7,7 +7,7 @@ This is my personal collection of materials for tech interviews.
 	- [x] quick select
 	- [x] rainbow sort
 
-### string matching
+### String matching
 - core
 	- [ ] KMP
 	- [ ] Rabin Karp
@@ -18,9 +18,10 @@ This is my personal collection of materials for tech interviews.
 		> Very complicated. Only learn it if you have time. [best illustration](https://stackoverflow.com/questions/9452701/ukkonens-suffix-tree-algorithm-in-plain-english/9513423#9513423)
 	- 
 
-### graph/tree algorithm
+### Graph/tree algorithm
 - core
 	- [x] cycle detection `LC684`
+	- [x] minimal spanning tree
 	- [x] Dijkstra's algorithm `LC743`
 	- [x] uniform-cost search  
 		> Dijkstra's algorithm searches for shortest paths from root to every other node in a graph, whereas uniform-cost searches for shortest paths in terms of cost to a goal node. 
@@ -37,7 +38,7 @@ This is my personal collection of materials for tech interviews.
 	- [ ] Morris traversal 
 	- [x] Convex hull `LC 587` 
 
-### others
+### Others
 - core
 	- [x] Fisher–Yates shuffle `LC 519`
 	- [x] Reservoir sampling

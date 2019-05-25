@@ -1,15 +1,23 @@
-2018/6/27 - 2019/5/7 (pages 1-1000)
-- TODO
-    - read the pdf mian jing
-    - read the [evernote mian jing](https://www.evernote.com/shard/s408/client/snv?noteGuid=78841028-22b0-4b05-a4db-77fec5f36c7e&noteKey=e974557626acb173&sn=https%3A%2F%2Fwww.evernote.com%2Fshard%2Fs408%2Fsh%2F78841028-22b0-4b05-a4db-77fec5f36c7e%2Fe974557626acb173&title=Square%2B%25E9%259D%25A2%25E7%25BB%258F)
+2018/6/27 - 2019/5/22 (pages 1-1000)
 - coding
-    - [x] LC easy
-    - [x] LC medium
-    - [x] LC hard
-    - [ ] LC 68, 105 282
-    - [ ] 个组合, 里面是[A, B], [B, A], [C, D], [D, E], [E, C] 这样的一对对, 让找所有能环起来的组合:  ([A, B], [B, A] 能环起来,  [C, D], [D, E], [E, C] 也能环起来)
-    - [ ] 实现简单的画板程序，比如画布是二维矩阵， 实现drawLine （可以是斜着的），然后实现undo操作之类的
-    - [ ] 給定以下example
+    - [x] LC easy 415
+    - [x] LC medium 105 210 211
+    - [x] LC hard 68 282
+    - [ ] LC 128 146 588 981 635 289 355 621 127 271 573 139 699 969 15 98 13 57 79 17 91 465 288 284 72
+    - [x] 个组合, 里面是[A, B], [B, A], [C, D], [D, E], [E, C] 这样的一对对, 让找所有能环起来的组合:  ([A, B], [B, A] 能环起来,  [C, D], [D, E], [E, C] 也能环起来)
+    - [x] 实现简单的画板程序，比如画布是二维矩阵， 实现drawLine （可以是斜着的），然后实现undo操作之类的
+        ```java
+        input: int mat[][]
+        Map<Integer, Map<Integer, Integer>> counts // (x, y) => counts.  how many times a cell has been painted
+        void draw(int x1, int y1, int x2, int y2) {
+            // calculate slop first, and then scan the line to find out which cells should be painted.
+            // update `counts`
+        }
+        void undo(int x1, int y1, int x2, int y2) {
+            // reverse the process of draw
+        }
+        ```
+    - [x] 給定以下example
         patent1 : jim : patent2
         patent 2 : john, jack, lisa
         patent 3 : jim, lisa : patent 2, patent 1
@@ -25,7 +33,7 @@
         Map<String, Set<String>>> patentDependency; 
         ```
 
-    - [ ] 设计一个class twitter(object)，比如给你一句话：
+    - [x] 设计一个class twitter(object)，比如给你一句话：
         # "it was the best of times it was the worst of times"
         你需要让code学会was这个词是跟在it后面的
         ex：
@@ -121,3 +129,12 @@
     - [ ] 设计 cache, 各种 policy(LRU, LFU...)
     - [ ] online hotel booking system
     - [ ] x6: hotel booking system, support booking, room searching
+        - schemas
+            - `hotels` (id, ..)
+            - `rooms` (id, hotel_id, root_type, status)
+            - `reservations` (id, user_id, hotel_id, room_id, check_in, check_out)
+                1. in order to support booking multiple rooms at once, we can add a new `reservation_rooms` table
+        - Api
+            - `List<Room> search(area/city)`
+            - `Reservation book(user_id, root_id, check_in, check_out)`
+            - 

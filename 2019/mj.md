@@ -37,11 +37,13 @@ Kafka is a distributed streaming platform
     - [x] buy and sell stock 
     - [ ] input: char[][] matrix, int i, int j，其中(i, j)相当于matrix上某点，matrix上每char可能是{up, down, right, left, x},其中x有且只有一个 问是否能从（i, j）走到x所在的点. output: boolean
 
-## [Robinhood](robinhood.md)
-## [LinkedIn](linkedin.md)
-## [citadel](citadel.md)
-## [Uber](uber.md)
-## [Lyft](lyft.md)
+- [Robinhood](robinhood.md)
+- [LinkedIn](linkedin.md)
+- [citadel](citadel.md)
+- [Uber](uber.md)
+- [Lyft](lyft.md)
+- [Houzz](houz.md)
+- [Apple](apple.md)
 
 ## script to crawl 一亩三分地
 Ruby script to grep 1point3acres

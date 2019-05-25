@@ -1,12 +1,12 @@
 - Candidate list:
+	- onsite:
+		- LinkedIn Brex Google Robinhood Citadel NXT
 	- phone interview arranged
-		- LinkedIn, Brex, Jane street, Citadel NXT, Robinhood Uber Houzz, Lyft, Square, dropbox, amazon, Google, 
+		- apple Jane street Uber Houzz, Lyft, Square, dropbox, amazon Nuro
 	- interview reject
 		- Facebook, Netflix, 
 	- no response 
-	 	- snapchat Apple Twitter, Citadel, Pintrest, stripe, two sigma, jump trading, DE shaw, 
-	
-	workday, 
+	 	- snapchat Twitter, Citadel, Pintrest, stripe, two sigma, jump trading, DE shaw 
 
 总结。
 1. 金融公司特别喜欢问netword, multithreading, c++ 的问题。所以千万不要在简历里面写自己会这些。

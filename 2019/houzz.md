@@ -1,8 +1,9 @@
+xxxx - 2019/5/23
 - coding
     - [x] LC easy 572
-    - [x] LC medium 33, 49, 200, 227
-    - [x] LC hard 174
-    - [ ] LC 4, 10, 24, 25, 31, 43 48 123 , 188, 743 65, 304, 341 759, 767 785
+    - [x] LC medium 24, 33, 43 49, 200, 227 304 341 743
+    - [x] LC hard 4 10 65 123 174 727 759
+    - [ ] LC 25 31 48 188 767 785 200
     - [ ] LRU follow up 問了假如 input很大怎麼辦
     - [x] 写 quick sort
     - [x] 给一个二叉树，每次print所有leaf，然后delete所有leaf，直到删掉root
@@ -10,7 +11,7 @@
     - [ ] 给一个string  a_b_c 或者 (a_b_c)_d_(e_f_g) 转换成binary tree
     - [ ] 给你一串字母string(lower case letter)，求出他在所有permutation里按字母顺序排列的序号，允许有duplication
     - [ ] 给一个range 1-n,如果n=5给出a = [2,3,1,4,5],b由a得出，从位于当前数字index后面的数中，数出比当前数字小的个数，所以b = [1,1,0,0,0]。然后现在知道b反推a
-    - [ ] zigzag print out matrix
+    - [x] zigzag print out matrix
         [ 1 2 3   
           4 5 6 
           7 8 9] 
@@ -63,4 +64,4 @@
 - system design
     - [x] Shorten URL System Design    
     - [ ] design一个search
-    - [ ] 设计一个notify system. 给你一个API notify，call的时候会直接notify，然后给一大堆request，要求延时notify. 先设计整个Amazon alexa系统，然后做notification的OOD
+    - [x] 设计一个notify system. 给你一个API notify，call的时候会直接notify，然后给一大堆request，要求延时notify. 先设计整个Amazon alexa系统，然后做notification的OOD
