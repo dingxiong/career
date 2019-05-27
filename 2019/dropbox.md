@@ -10,7 +10,7 @@
     - [ ] LC 379 => use segment tree & bitset to get lgN time/space complexity
     - [ ] LC LFU
     - [ ] LC 17
-    - [ ] implement read/write lock,
+    - [x] implement read/write lock,
     - [ ] 问的Nasa， 给了一个section(int x, int y) 和Image class， 求storeImage(section, Image) 和 Image fetch(section). follow up 是 section getstalest(section)
     - [ ] delay method call: 让你写一个API，可以传进去一个function和一个时间，然后这个function会被延迟这么多时间被执行。 这个API可以被反复call， 相当于可以schedule不止一个要被延迟处理的function。
         ```java
@@ -125,7 +125,7 @@
             }
         }
         ```
-    - [ ] token bucket
+    - [x] multithread token bucket
     - [ ] KV Store这道题的问题是设计一个transaction， 有一个start() 方法， 返回一个transaction id. 有一个put(transactionId, String key, int value),
          有一个get(transactionId, String key), 和一个commit(transactionID)
 
