@@ -1,0 +1,24 @@
+- Main features:
+    - sync/download files
+- Architecture
+    - Metadata service
+    - notification service
+    - block server
+- components:
+    - file system
+        - fs: a namespace + a relative path.
+        - blocklist: 4MB chunck hashes
+        - storage: S3
+    - client side
+    - block data store `Map<chunck_hash, s3_path>`
+    - meta data store
+        - `server_side_log` (id, namespance(user_id/share folder id), path_and_file_name, chunk_id, updated_at)
+    - CDN
+- questions:
+    - consistency & versioning
+    - dedup files => chunck hash
+    - how to search
+
+### References
+- https://blogs.dropbox.com/tech/2014/07/streaming-file-synchronization/
+- paper `designing a dropbox-like file storage service`

@@ -1,10 +1,10 @@
-1-600
+2018/9/01 - 2019/5/27 1-800 
 - coding
     - [x] LC hard 480
     - [x] LC medium 19 105, 106, 647
     - [x] LC hard 44 218
     - [ ] LC 268 
-    - [ ] LC Best Time To Buy And Sell Stock I and II
+    - [ ] LC Best Time To Buy And Sell Stock I and II, ring buffer, Water trapping + 3D
     - [ ] hoffman decoding
     - [ ] 背包问题 输出背包可以装的最大价值 follow up：输出方案
     - [ ] reverse文章，单词不reverse. 要求one pass.
@@ -48,7 +48,31 @@
         }
         ``` 
     - [x] ![String chains](citadel/citadel_01.png)
-
+    - [x] 一个计算量很大要跑很长时间的function，如何设计cache，让其他有same input的function call 不用重复计算，而且在第一个function with input v运算完成时，
+        其他有 same input的function就算没有算完也可以立刻得到这个结果。
+        ```java
+        Map<String, Object> cache; // fun#args hash => result
+        Map<String, Set<Thread>> running; // fun#args hash => the threads are performing fun(args) calculation.
+        void run() {
+            // stage 1
+            Object stage1Result = null;
+            if (cache.containsKey(hash)) {
+                stage1Result = cache.get(hash);
+            } else {
+                try {
+                    running.get(hash).add(Thread.currentThread);
+                    stage1Result = calculateStage1();
+                    cache.put(hash, stage1Result);
+                    running.get(hash).remove(Thread.currentThread);
+                    for (Thread t: running.get(hash)) t.interrupt();
+                } catch (InterruptedException e) {
+                    stage1Result = cache.get(hash);
+                }
+            }
+            // stage 2
+            // .....
+        }
+        ```
 - system design
     - [ ] movie tickers app
     - [ ] design twitter 

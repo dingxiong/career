@@ -1,6 +1,6 @@
 1-600
 - TODO
-    - read docx file
+    - read https://www.1point3acres.com/bbs/interview/dropbox-software-engineer-307607.html
     - delay method call 用 delay queue 实现一下
     - segment tree 去做 LC 379
 - coding
@@ -8,15 +8,79 @@
     - [x] LC medium 289, 379 622 362
     - [x] LC hard 924
     - [ ] LC 379 => use segment tree & bitset to get lgN time/space complexity
-    - [ ] LC LFU
-    - [ ] LC 17
+    - [x] LC LFU
+    - [ ] LC 17 
+    - [ ] LC coin change Word Break /Word Break II
     - [x] implement read/write lock,
-    - [ ] 问的Nasa， 给了一个section(int x, int y) 和Image class， 求storeImage(section, Image) 和 Image fetch(section). follow up 是 section getstalest(section)
+    - [x] 问的Nasa， 给了一个section(int x, int y) 和Image class， 求storeImage(section, Image) 和 Image fetch(section). follow up 是 section getstalest(section)
+        similar to LRU cache
+        ```java
+        /**
+        * NASA selects Dropbox as its official partner, and we’re tasked with managing
+        * a panorama for the universe. The Hubble telescope (or some other voyager we . Waral 博客有更多文章,
+        * have out there) will occasionally snap a photo of a sector of the universe, . from: 1point3acres
+        * and transmit it to us. You are to help write a data structure to manage this.
+        * For the purpose of this problem, assume that the observable universe has been
+        * divided into 2D sectors. Sectors are indexed by x- and y-coordinates.
+        */
+        public File {
+            public File(String path) {}
+            public Boolean exists() {}
+            public byte[] read() {}
+            public void write(bytes[] bytes) {}
+        }
+        public Image {
+            public Image(byte[] bytes) {}
+            byte[] getBytes() {} // no more than 1MB in size. more info on 1point3acres
+        }
+        public Sector {
+            public Sector(int x, int y) {}
+            int getX() {}
+            int getY() {}
+        }
+        /**
+        * row-major indexing to be consistent.
+        */
+        public class SpacePanorama {
+            /**
+            * initializes the data structure. rows x cols is the sector layout.
+            * width, height can be as large as 1K each.
+            */
+            public SpacePanorama(int rows, int cols) {}
+            /**
+            * The Hubble will occasionally call this (via some radio wave communication)
+            * to report new imagery for the sector at (y, x)
+            * Images can be up to 1MB in size.
+            */
+            public void update(int y, int x, Image image) {}
+            /**
+            * NASA will occasionally call this to check the view of a particular sector.
+            */
+            public Image fetch(int y, int x) {}
+            /**
+            * return the 2D index of the sector that has the stalest data.
+            * the idea is that this may help the telescope decide where to aim next.
+            */
+            public Sector getStalestSector() {}
+        }
+        ```
     - [ ] delay method call: 让你写一个API，可以传进去一个function和一个时间，然后这个function会被延迟这么多时间被执行。 这个API可以被反复call， 相当于可以schedule不止一个要被延迟处理的function。
         ```java
         ScheduledExecutorService executorService  = Executors.newScheduledThreadPool(10);
         executorService.schedule(() -> function(), time, TimeUnit.SECONDS)
         ```
+    - [x] 照片每次被view就會call View(photo id), 給top-k view photo.
+        1. PriorityQueue + HashMap => update O(logN), top-k O(k*logN)
+        2. similar to LFU : `HashMap<id, Node>` + double linked list 
+            ```java
+            class Node {
+                Node prev, next;
+                int count;
+                Set<Integer> photoIds;
+            }
+            ```
+    - [x] BitTorrent那一题。给一堆下载好的chunk的起始byte和结束byte，给File的大小，看看chunk有没有覆盖从0到file大小的所有byte。
+        Similar to LC 715
     - [x] 给一个list 里面存放file system里面folder的parent-child tuple, 以及一个access_right的set，里面是有explicit access权限的folder。 
         拥有explicit access的folder, 底下的children folders就会有implicit access，实现一个function, input是folder, 返回这个folder是否有access (either explicit or implicit)
     - [x] 2-d array of "sharpness" values. Fine the path from left to right which has the highest minimum sharpness. 路径必须是从左往右，先有个起始点，然后每次要往右上，正右或右下跳一步。
@@ -136,14 +200,14 @@
     - [ ]  给你一些producer，发送不同的image url到你的service，你的service需要有consumer，来读取image的url，然后把image download下来。
         其实就是想让你design 一个mesasge queue。follow up有咱们scale，consumer machine down掉了怎么办，如果message queue down掉了怎么办，
         down掉后重新开启有什么问题。最开始还让写了一下service的各个API。
-    - [ ] Design Dropbox
+    - [x] Design Dropbox
     - [x] 设计一个类似于电话簿的APP， 从设计API, 页面 到怎么scale ，pagination 都要聊一下。
         - schema
             - `contacts` (user_id, contact_name, contact_phone, status(blocked...))
         - api
             - add_contact / delete_contact
 
-    - [ ] 设计log系统
+    - [x] 设计log系统
     - [ ] 设计Twitter 主页feeds. daily active user 1M2    
 - BQ
     - [ ] 怎么处理意见不同的冲突，怎么去说服别人同意你的观点，你工作过的最喜欢的组或者公司是什么，为什么喜欢啦

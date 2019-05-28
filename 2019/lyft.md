@@ -1,13 +1,18 @@
-2018/11/17 - 2019/5/6 (page 1-600)
+2018/11/17 - 2019/5/28 (page 1-600)
+- TODO
+    - read pdf mj
 - coding
     - [x] LC easy: 42, 53, 157
-    - [x] LC medium: 200, 238, 287, 300
-    - [x] LC hard: 158, 239
-    - [ ] LC: 8, 133, 347, 642, 735, 935
-    - [ ] LC new: 759,
+    - [x] LC medium: 8 133 200, 238, 287, 300 347
+    - [x] LC hard: 158 239 759
+    - [ ] LC: 735, 935
+    - [ ] LC new 642
     - [ ] Regex match: 包括 `. ? * +`
     - [ ] post-order 遍历，非递归 
+    - [ ] You are given a sorted without any duplicate integer array, can you write code to tell me what is the Nth missing integer.
     - [ ] 给你两个iterators， 实现一个iterator, 返回两个中的共同元素
+    - [ ] 设计excel，先讲思路，其实主要是处理dependency的问题，比如A1=B1+C1, B1=D1+1这种情况如何处理
+        => topological sort. 需要自己 parse string
     - [ ] N个string合并成一个，要保留原来string里面字符的顺序。求所有可能组合. merge(['AB', 'C']) => ['ABC', 'ACB', 'CAB']. merge(['AB', 'CD']) => ['ABCD', 'ACBD', 'ACDB', 'CABD', 'CADB', 'CDAB']
     - [ ] LC 158 变形
         ```cpp
@@ -57,19 +62,18 @@
         };
         ```   
 - system design
-    - [ ] 设计web crawler.
-    - [ ] 设计delay queue
+    - [x] 设计web crawler.
+    - [x] 设计delay queue
     - [ ] Design music sharing system
     - [ ] 设计一个Lyft 的coupon 系统
-    - [ ] design job scheduler
+    - [x] design job scheduler
     - [ ] 设计google和lyft两个的叫车服务，主要是eta, 和价格。 先设计google的，怎么连接到lyft，然后是设计lyft方面自己的服务。
         狗哥地图搜索，有一个功能，显示红车的价格和估计时间。问如何设计狗哥的这个功能，然后又问如何设计红车的系统支持这个功能
-    - [ ] design twitter
+    - [x] design twitter
     - [ ] 实现yelp的typeahead recommendation
     - [ ] Design Lyft driver and rider matching system
     - [ ] design donation website
         主要是看如何不多次 收信用卡上的钱
     - [ ] 设计一个wikipedia的爬虫，把所有page都存下来. 站点内容会变
-    - [ ] 带版本的k/v store     
 - behavior
     - [ ] 介绍the most proud project
