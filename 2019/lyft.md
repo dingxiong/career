@@ -3,10 +3,8 @@
     - read pdf mj
 - coding
     - [x] LC easy: 42, 53, 157
-    - [x] LC medium: 8 133 200, 238, 287, 300 347
-    - [x] LC hard: 158 239 759
-    - [ ] LC: 735, 935
-    - [ ] LC new 642
+    - [x] LC medium: 8 133 200, 238, 287, 300 347 735 935
+    - [x] LC hard: 158 239 642 759
     - [ ] Regex match: 包括 `. ? * +`
     - [ ] post-order 遍历，非递归 
     - [ ] You are given a sorted without any duplicate integer array, can you write code to tell me what is the Nth missing integer.

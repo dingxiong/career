@@ -24,19 +24,6 @@ Kafka is a distributed streaming platform
     - [ ] 实现一个iterator class, input是正常的iterator, 这个class可以实现hasNext(), next(), skip(element), skip(element)会跳过正常iterator里next occurence of the given element。如果skip call n times, 就跳过下面 n个given element，iterator里的elements可以有重复。Refer LC 284 for peek support.
 - system design
 
-
-## Nuro
-- coding
-    - [ ] LC 64, 778
-    - [ ] LC calculator II, 227, 451
-    - [ ] 平面上一堆坐标，类型是浮点，要求返回有没有任意两个点之间的距离是小于根号2的. 
-        use hashmap ?? if |(x1, y1) - (x2, y2)| < sqrt(2) => at least |x1-x2| < 1 or |y1-y2| < 1 is true.
-
-## Jane Street (All time)
-- coding
-    - [x] buy and sell stock 
-    - [ ] input: char[][] matrix, int i, int j，其中(i, j)相当于matrix上某点，matrix上每char可能是{up, down, right, left, x},其中x有且只有一个 问是否能从（i, j）走到x所在的点. output: boolean
-
 - [Robinhood](robinhood.md)
 - [LinkedIn](linkedin.md)
 - [citadel](citadel.md)
@@ -44,6 +31,7 @@ Kafka is a distributed streaming platform
 - [Lyft](lyft.md)
 - [Houzz](houz.md)
 - [Apple](apple.md)
+- [Nuro](nuro.md)
 
 ## script to crawl 一亩三分地
 Ruby script to grep 1point3acres
