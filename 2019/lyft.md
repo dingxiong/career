@@ -7,7 +7,27 @@
     - [x] LC hard: 158 239 642 759
     - [ ] Regex match: 包括 `. ? * +`
     - [ ] post-order 遍历，非递归 
-    - [ ] You are given a sorted without any duplicate integer array, can you write code to tell me what is the Nth missing integer.
+    - [x] 给txt文件  自己读进来   要求的是所有前缀相同的词里 只选最先出现的5个  并且输出里要含有该词在输入文件txt里的序号
+        => 参考 LC 642
+    - [x] You are given a sorted without any duplicate integer array, can you write code to tell me what is the Nth missing integer.
+        ```java
+        private static int findKMissing(int[] arr, int k) {
+            int n = arr.length;
+            int l = 0, h = n - 1;
+            while (l+1 < h) {
+                int mid = (l+h)/2;
+                int missingLeftSide = arr[mid] - arr[l] - (mid - l);
+                if (missingLeftSide >= k) {
+                    h = mid;
+                } else {
+                    l = mid;
+                    k -= missingLeftSide;
+                }
+            }
+            int diff = arr[h] - arr[l];
+            return k < diff ? arr[l] + k : arr[l] + k + 1;
+        }
+        ```
     - [ ] 给你两个iterators， 实现一个iterator, 返回两个中的共同元素
     - [ ] 设计excel，先讲思路，其实主要是处理dependency的问题，比如A1=B1+C1, B1=D1+1这种情况如何处理
         => topological sort. 需要自己 parse string
@@ -65,13 +85,17 @@
     - [ ] Design music sharing system
     - [ ] 设计一个Lyft 的coupon 系统
     - [x] design job scheduler
+    - [ ] 带transaction 数据库实现.
     - [ ] 设计google和lyft两个的叫车服务，主要是eta, 和价格。 先设计google的，怎么连接到lyft，然后是设计lyft方面自己的服务。
         狗哥地图搜索，有一个功能，显示红车的价格和估计时间。问如何设计狗哥的这个功能，然后又问如何设计红车的系统支持这个功能
     - [x] design twitter
-    - [ ] 实现yelp的typeahead recommendation
+    - [x] 实现yelp的typeahead recommendation
     - [ ] Design Lyft driver and rider matching system
+    - [ ] 设计一个网上的 donation 系统，好像主要是看如何不多次 收信用卡上的钱
     - [ ] design donation website
         主要是看如何不多次 收信用卡上的钱
-    - [ ] 设计一个wikipedia的爬虫，把所有page都存下来. 站点内容会变
+    - [ ] distributed web crawler: 设计一个wikipedia的爬虫，把所有page都存下来. 站点内容会变
 - behavior
     - [ ] 介绍the most proud project
+    - [ ] 跟同事设计不一样的例子 怎么处理的
+    - [ ] 自己工作上犯过什么错

@@ -34,6 +34,7 @@ This is my personal collection of materials for tech interviews.
 	- [ ] Johnson's algorithm
 	- [ ] Radix sort
 	- [x] Union find `LC 765`
+	- [ ] Hungarian algorithm (perfect matching in bipartite graph)
 - extended
 	- [ ] Morris traversal 
 	- [x] Convex hull `LC 587` 
@@ -58,7 +59,7 @@ This is my personal collection of materials for tech interviews.
 	- [x] Log-structured merge-tree (LSM)
 	- [x] Suffix tree
 	- [ ] Skip list
-
+	- [ ] [Rope](https://en.wikipedia.org/wiki/Rope_(data_structure))
 
 ## Architecture && Experience
 System design steps: 
