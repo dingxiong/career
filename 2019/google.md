@@ -1,8 +1,9 @@
 ## google
 - coding
+    - [x] LC medium 56 139 294 399 807
     - [x] LC hard 843
-    - [ ] LC 115 222 224 315 399 410 59
-    - [ ] LC 777, 56, 334, 659, 41 273 126 815
+    - [ ] LC 115 222 224 315 399 410 59 943
+    - [ ] LC 777, 774 334, 659, 41 273 126 815
     - [ ] [google hot questions](./google/Google_hot_questions.pdf)
     - [x] 高频 https://www.1point3acres.com/bbs/interview/google-software-engineer-429386.html
         - 第五题 => similar to Dijkstra. Use a BFS + PQ to contain traverse all possible routes with preference for smaller distance so far.
@@ -47,6 +48,19 @@
     - [ ] 给一个string, 如果有相邻的同一个字母的大小写pair，把这两个char都删掉，follow up是如果新的string里面又出现了这种pair继续删掉，
         直到string里不含这种Pair为止。这道题看起来简单，要特别注意corner case。
     - [ ] 骰子拼字
+    - [ ] 有一个 List<String>, 每个 String 是一个电影名字(全小写), "i love you", "you are smart", "you awesome", "smart baby" 这样
+        如果规则是, String A 的最后一词和 B的第一词match, 则可以合并, 求全合并后最长(总 String最长)的合并结果, 返回这个结果. 用上面的例子就是 "i love you are smart baby".
+    - [ ] 商人有一些商品，这些商品在cityA和cityB每天的物价都不一样，商人从cityA travel到cityB也有cost，所以要考虑每天在哪个city卖商品才能使收益最大化。每天只能卖一件商品，卖完为止
+    - [x] 说模拟Google Map中一个一维路段的车流，最后设计并表示出所有车流的平均速度，比如有[0,14,90mph]表示有一个车流从位置0到14，速度为90mph，
+        然后有[3,15,80mph]，那相当于分成了3个车流，[0,3,90mph]，[3,14,85mph]，[14,15,80mph]，考虑到有overlap要算平均值，所有这个车流的class设计的时候得加个count表示由多少车流汇合。
+        => sorting + process.
+    - [x] 给一个数组A，找到i,j, 使得A == A[j] 并且sum[i:j] 最大
+        => `Map<value, smallest_pre_sum>` for example [1, 2, 2, -10, 1, 6], then `1 -> -5, 2 -> 1`.
+    - [x] 设计一个Iterator的next和hasNext，input是一个数组[a，b，c]和一个int n，每次next()输出一个可能的组合。比如说，n如果是2，
+        可能的组合是ab，ac和bc，next第一次输出ab，第二次ac，第三次bc 
+        => use `int[n] pos` to record the process state, then continue DFS.
+    - [x] 棋盘上看有没有3个棋子连成一线，包括横竖对角
+        => Use 3 maps `Map<x, count>`, `Map<y, count>` and `Map<x+y, count>`. 
     - [x] Say you have a web server and a logging component. The component has two functions as below. When a request come in to the web server, 
         started(string, int) get called first, then completed(string, int) get called. You are required to print out a logging statement for each 
         request Sorted by the started time.
@@ -142,6 +156,9 @@
 - system design
     - [ ] rate limiter
     - [ ] uuid generator
+    - [ ] 设计一个分布式计费管理服务
+    - [ ] 设计一分布式配置系统。 有很多micro servers跑在很多数据中心，每个server有很多config，比如service A 有配置是 最大内存 = 100mb, 
+        用户发一个请求给这个配置系统，把这个设置改成200. 要求这个config change出去后尽可能快的被server pick up。
 - BQ
     - [ ] 比如怎么带新人，怎么处理组内同事关系，有人突然离职或者受伤了，导致deadline之前活完不成了怎么办? 
     - [ ] 有没有什么工作是你commit了但没有完成的

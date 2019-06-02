@@ -20,7 +20,7 @@ This is my personal collection of materials for tech interviews.
 
 ### Graph/tree algorithm
 - core
-	- [x] cycle detection `LC684`
+	- [x] cycle detection `LC684`, `LC207`
 	- [x] minimal spanning tree
 	- [x] Dijkstra's algorithm `LC743`
 	- [x] uniform-cost search  
@@ -34,7 +34,8 @@ This is my personal collection of materials for tech interviews.
 	- [ ] Johnson's algorithm
 	- [ ] Radix sort
 	- [x] Union find `LC 765`
-	- [ ] Hungarian algorithm (perfect matching in bipartite graph)
+	- [ ] 
+	- [ ] Hungarian algorithm (perfect matching in bipartite graph), KM algorithm
 - extended
 	- [ ] Morris traversal 
 	- [x] Convex hull `LC 587` 
