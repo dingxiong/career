@@ -1,9 +1,9 @@
 ## google
 - coding
-    - [x] LC medium 56 139 294 399 807
-    - [x] LC hard 843
+    - [x] LC medium 56 62, 63 139 146 294 399 676 684 750 807 853 855
+    - [x] LC hard 489 659 685 815 843 857
     - [ ] LC 115 222 224 315 399 410 59 943
-    - [ ] LC 777, 774 334, 659, 41 273 126 815
+    - [ ] LC 777, 774 334, 659, 41 273 126
     - [ ] [google hot questions](./google/Google_hot_questions.pdf)
     - [x] 高频 https://www.1point3acres.com/bbs/interview/google-software-engineer-429386.html
         - 第五题 => similar to Dijkstra. Use a BFS + PQ to contain traverse all possible routes with preference for smaller distance so far.
@@ -14,14 +14,6 @@
         - 第六题 => we can project all points to x axis. and find the median of the points. If there are two points exactly at the median, 
             then we should project to y = pi * x. This way, no two points will be projected to the same point.
         - 其中第七题 chttps://www.1point3acres.com/bbs/interview/google-software-engineer-212722.html
-    - [ ]扫地机器人问题
-        给出了扫地机器人的interface，要让扫地机器人扫遍整个房间。房间设计成一个m*n的grid，0是路，1是障碍，实现几个function。
-        move() 朝着机器人面对方向移动一格-baidu 1point3acres
-        turnLeft(int k) 逆时针转动k次
-        turnRight(int k) 顺时针转动k次
-        clean() 打扫机器人当前格子
-        cleanRoom() 发动机器人清理整个房间，清扫任务的entry function。. 1point3acres
-        难点主要在如何把move turn和clean的function扦插到具体的算法实现中
     - [ ]移动键盘和求二叉树最大和的层数
     - [ ] 应该是面经题，包装比较多。谷歌有m个data center, data center按顺序连成一串。每个data center都有n个机器，相邻data center之间的机器都是相连的，一个data center内部机器不会互相连接。
         现在有一个job需要完成，job从第一个data center开始，一直传递到最后一个data center。给你两个function, getLatencyTime(machine1, machine2) 代表从一个机器传信息到另一个机器需要的时间，
@@ -38,12 +30,10 @@
     - [ ] LC sliding window
     - [ ] 写一个SkipIt类，要求提前调用skip(int n)，这样iterator中出现n的地方就跳过，而到下面去。要求实现这个SkipIt
     - [ ] 给了一个数组，有如下特点：sorted, 有重复，有且仅有一个数字在数组里的数量超过了25%，找到这个数字。比如1,2,2,6,6,6,6,7,10 那么答案就是6.
-    - [ ]  OS相关的问题，描述文件读写的detail流程。
-    - [ ]  find top k min 的分布式实现， 这个YouTube上有视频。
+    - [ ] OS相关的问题，描述文件读写的detail流程。
+    - [ ] find top k min 的分布式实现， 这个YouTube上有视频。
     - [ ] bucket sort的并行实现
-    - [ ] 面经题，2个string，用stringB去construct stringA，只能删除，但是stringB可以重复多次，问最少几次可以组成string A, 
-        用的hashmap<character, treeset<integer>>做的，每次call ceiling method，返回是null记数+1，面试官说看起来是work的，写完代码后跑了一个case。
-    - [ ] insert number into a circular linkedlist，并update head到最小数字
+    - [ ] insert number into a circular linkedlist，并update head到最小数字, linkedlist 要保证排序好的
     - [ ] 判断一个数组是否为三角数组，三角数组定义是：先递增再递减或者先递减在递增， follow up：在这个数组中 查找一个特定元素
     - [ ] 给一个string, 如果有相邻的同一个字母的大小写pair，把这两个char都删掉，follow up是如果新的string里面又出现了这种pair继续删掉，
         直到string里不含这种Pair为止。这道题看起来简单，要特别注意corner case。
@@ -51,6 +41,22 @@
     - [ ] 有一个 List<String>, 每个 String 是一个电影名字(全小写), "i love you", "you are smart", "you awesome", "smart baby" 这样
         如果规则是, String A 的最后一词和 B的第一词match, 则可以合并, 求全合并后最长(总 String最长)的合并结果, 返回这个结果. 用上面的例子就是 "i love you are smart baby".
     - [ ] 商人有一些商品，这些商品在cityA和cityB每天的物价都不一样，商人从cityA travel到cityB也有cost，所以要考虑每天在哪个city卖商品才能使收益最大化。每天只能卖一件商品，卖完为止
+    - [x] 一个无重复数字的数组，假如[1,2,50,100]，要求只要把最大的数字in place的变成最小，且比其他数字要大，这里的话就是变成[1,2,3,4]。
+        然后followup1是变成一个二维数组，同样规则。followup2是二维数组里面要求compress时，只要同一行里满足第一问的条件，同一列里也满足就可以，也就是说，满足这个条件的话，
+        哪怕这个数在整个二维数组里是第5大的，但是如果把它变成4也可以满足，那就把它变成4，同时只要当前的数不是数组中最大的一个，它是几都无所谓。
+        解法大概是keep一个数组作为col max，再keep一个常量作为row max，然后循环，比较，只有在比当前值大的时候才更新。
+    - [x] 有很多街区，每个街区各自有商店， 餐馆或超市， 让你根据自己的preference选择一个街区居住，使得你离你prefrence的最远距离最小.
+            比如 blocks = [[safeway, thai resataurant], [starbucks, walmat], [chinese restaurant, costco, starbucks]，[Indian resataurant]].
+           preference = [starbucks, Safeway, Indian restaurant] 
+           => step 1: 找出所有preference 的 block, 比如 { starbucks => {1, 3, 5}, Safeway => {2, 5, 6}, Indian restaurant => {2, 3,4} } 
+            step 2: 搞一个priorityQueue, 把每个 preference 最小的地址push 进去 {1, 2, 2} 并且记录 max 很 min, 那么 best location 就是 min 和 max 的中间某点。
+            然后不停的pop最小的loc 并且放进下一个loc. 同时跟新min, max, best_loc.
+    - [x] expiration hashMap 
+        ```java
+        class Node {int value, long ttl}
+        Map<Key, Node> map 
+        Map<TTL, Set<Key>> 
+        ```
     - [x] 说模拟Google Map中一个一维路段的车流，最后设计并表示出所有车流的平均速度，比如有[0,14,90mph]表示有一个车流从位置0到14，速度为90mph，
         然后有[3,15,80mph]，那相当于分成了3个车流，[0,3,90mph]，[3,14,85mph]，[14,15,80mph]，考虑到有overlap要算平均值，所有这个车流的class设计的时候得加个count表示由多少车流汇合。
         => sorting + process.
