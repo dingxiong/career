@@ -1,8 +1,8 @@
 - Candidate list:
 	- onsite:
-		- LinkedIn Brex Google Robinhood Citadel NXT Houzz Square Nuro
+		- Google Brex Citadel Robinhood LinkedIn Houzz Square Nuro
 	- phone interview arranged
-		- apple Uber dropbox, amazon 
+		- apple Uber dropbox, amazon  quip
 	- interview reject
 		- Facebook, Netflix, Jane street Lyft
 	- no response 

@@ -33,7 +33,7 @@ def contain_key(keyword, file_name)
                 .map {|line| line.encode!('UTF-8', 'binary', invalid: :replace, undef: :replace, replace: '').downcase }
                 #.map {|line| line.force_encoding('gb2312').encode('UTF-8').downcase } # correct the encoding
     # content.any? { |line| line.include?(keyword) }
-    content.any? { |line| line.include?(keyword) && line.include?("onsite") }
+    content.any? { |line| line.include?(keyword) }
 end
 
 def get_pages(keyword, from, to)
