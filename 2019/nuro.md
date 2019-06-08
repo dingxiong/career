@@ -31,3 +31,11 @@
         std::string LargeString::read(size_t start, size_t end);
         ```
         => use Rope https://en.wikipedia.org/wiki/Rope_(data_structure) or segment tree
+
+1. multithreading + IO
+2. coding
+3. system design
+4. BQ
+
+1. communication is important
+2. show interest on nuro. why it is different from its competitor.
