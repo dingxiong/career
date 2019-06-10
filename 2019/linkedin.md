@@ -6,10 +6,12 @@ feedback: explain the solution before jumping into it.
     - [read atlas](https://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=510610&extra=page%3D73%26filter%3Dauthor%26orderby%3Ddateline%26sortid%3D311%26sortid%3D311%26orderby%3Ddateline)
 - coding
     - [x] LC easy: 53, 69, 100, 136, 170, 198, 256 270, 339, 605 671 716
-    - [x] LC medium: 3, 33, 46, 50, 56, 114, 127, 142, 150, 152, 156, 187, 200, 213, 236, 243, 244, 245, 254, 277, 341 364, 366 380, 384 416 516 611 612 698 776
-    - [x] LC hard: 23, 42, 65 72, 146, 149, 265, 272, 352, 381, 432 460 715 895 973
+    - [x] LC medium: 3, 33, 46, 50, 56, 114, 127, 142, 150, 152, 156, 187, 200, 213, 236, 243, 244, 245, 254, 277, 341 364, 366 384 416 516 611 612 698 776
+    - [x] LC hard: 23, 42, 65 72, 146, 149, 265, 272, 297 352, 381, 432 460 715 895 973
     - [x] LC 189(in place)
     - [x] LC 205. follow up: input是 a list of words，考虑两种条件，第一种是存在两个word是isomorphic就返回true，第二种是任意两个word都为isomorphic才返回true
+    - [ ] LC 380
+    - [ ] smallest k product of two sorted array
     - [ ] 给一个数组，求有多少子集合等于一个给定值
     - [ ] 实现线程池/ExecutorService，跑需要延时的任务。面试官说答得挺好
     - [ ] Implement Bounded Blocking Queue
@@ -27,16 +29,7 @@ feedback: explain the solution before jumping into it.
         }
         ```
     - [x] 在一个递增的数组中，中间有若干数字丢失了，问你第K个不见的数字是多少。。例如【2,3,5,8,9】，k=1 返回4， k=3 返回7
-        ```java
-        int findK(int[] a, int k) {
-            int n = a.length;
-            for (int i = 1, mis = 0; i < n; i++) {
-                mis += a[i] - a[i-1] - 1;
-                if (mis >= k) return a[i] - (mis - k) - 1;
-            }
-            return a[n-1] + (k - mis);
-        }
-        ```
+        => binary search
     - [x] 给了3个java class， 一个streamer reader class, 一个stream object class, stream object 有rank. 写一个cache, 如果reach一定capacity，pop出rank最小的。
         ```java
         public class RetainBestCache<K, T extends Rankable> {
@@ -126,6 +119,28 @@ feedback: explain the solution before jumping into it.
         ```    
 - design 
     - [x] [xxxx] [design Top K article shared in 5 mins 1 hour 1 day](https://www.bookstack.cn/read/system-design/cn-bigdata-heavy-hitters.md)
+        1. maintain 3 queues for each topic.
+            ```java
+            Queue<Count> m5, h1, d1;
+
+            class Count {
+                Instant ts; 
+                int count;
+            }
+            ```
+            For `m5`, we store the counts for each seconds, so the length of this queue is 300.
+            For `h1`, we store the counts for each 30 seconds, so `h1.size = 120`.
+            For `d1`, we store the counts for each 10m, so `d1.size = 240`.
+            At the same time, we use the idea of LFU and maintain 3 linked list 
+            ```java
+            LinkedList<Node> m5, h1, d1;
+
+            class Node {
+                int count;
+                Set<String> articles;
+            }
+            ```
+            Then for each new item, we update the queue and the linked lists;
         - step 1: make it work in a single machine with unlimited memory: use a `List<(element, timestamp)>` and `TreeMap<element, count>` 
         - step 2: make it work in a single machine with limited memory:  Lossy counting algorithm, sticky sampling algorithm
     - [x] TinyUrl

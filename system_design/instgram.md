@@ -13,3 +13,6 @@
     - pull vs push
         - pull requires periodically looking up for updates => stale homepage time or large load on server
         - push may be bad for celebrities who have 1m+ followers.
+    - how to rank the posts?
+        - reversed time stamp
+        - feature based score: number of likes, num of common friends, 

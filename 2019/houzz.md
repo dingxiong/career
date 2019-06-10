@@ -1,9 +1,9 @@
-xxxx - 2019/5/23
+xxxx - 2019/6/8
 - coding
     - [x] LC easy 572
-    - [x] LC medium 24, 33, 43 49, 200, 227 304 341 743
-    - [x] LC hard 4 10 65 123 174 727 759
-    - [ ] LC 25 31 48 188 767 785 200
+    - [x] LC medium 24, 31 33, 43 48 49, 200, 227 304 341 743 767 785
+    - [x] LC hard 4 10 25 65 123 174 188 727 759
+    - [ ] LC
     - [ ] LRU follow up 問了假如 input很大怎麼辦
     - [x] 写 quick sort
     - [x] 给一个二叉树，每次print所有leaf，然后delete所有leaf，直到删掉root

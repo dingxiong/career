@@ -1,6 +1,6 @@
 (2018/9/19 - 2019/5/22)
 - coding
-    - [x] LC 54, 59, 140, 224 418 
+    - [x] LC 54, 59, 140, 224 418 516
     - [x] 写一个function来算input的mean max min等等
     - [x] [bank account transfer problem](http://web.mit.edu/6.005/www/fa15/classes/23-locks/#locking)  
         java sync pattern
@@ -79,14 +79,19 @@
     - [x] ![returns on investments](./robinhood/rh3_a.jpeg) ![part_b](./robinhood/rh3_b.jpeg)
 
 - System design
-    - message app for families。需要考虑产品功能，UI设计，API设计以及后台的Data Model
+    - [x] message app for families。需要考虑产品功能，UI设计，API设计以及后台的Data Model
+        - users (id, name)
+        - messages (id, family_id, user_id, ts)
+        - family_users (id, user_id)
     - implement Publisher Subscriber
     - [x] robinhood有一个股票价格变动幅度5%就发一个push notification给关注这个股票的用户， 要求设计一个系统完成这个功能
         two problems: 1. how to know 5% change. 2. when it happens, whom and how will the message sent to.
         1. We have a table records the closing price or opening price of for each stock.
         2. For any write operation to the storage (sql/redis...), check the percent of change of the day `(updated_price - yesterday_closing_price) / yesterday_closing_price > 5%`
         3. If it is, then from table `user_stocks(user_id, stock)` to find out all interested users and then send push notification
-    - 假设exchange有一个异步的API来post market order和查询order状态 要求做一个robinhood的交易功能，要求任何情况都不能挂。这轮被考到了，需要考虑exchange的API timeout和server crash的情况。面试官让你写实现功能的flow然后考虑哪一步会挂。主要是local db会有一个state，exchange那边会有一个state，在上述情况有可能out of sync。思路是先commit local db的transaction再去call exchange API，然后用aync job来verify和fix inconsitency
+    - [ ] 假设exchange有一个异步的API来post market order和查询order状态 要求做一个robinhood的交易功能，要求任何情况都不能挂。这轮被考到了，需要考虑exchange的API timeout和server crash的情况。
+    面试官让你写实现功能的flow然后考虑哪一步会挂。主要是local db会有一个state，exchange那边会有一个state，在上述情况有可能out of sync。思路是先commit local db的transaction再去call exchange API，
+    然后用aync job来verify和fix inconsitency
     - [x] 一个API service的load banlancer后面会有很多个server，每个server都会有一个log，如何将这些log merge起来，并且设置monitor，alert之类的。楼主的答案是基于Kafka的。
-    - [x] design一个family messaging app，从database，到API，到front-end
-    - 设计股票交易系统
+    - [ ] 设计股票交易系统
+    
