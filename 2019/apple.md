@@ -1,25 +1,58 @@
-2018/11/19 - 2019/5/23
+2018/11/19 - 2019/6/11
 - coding
-    - [x] LC easy 225 387 706
-    - [x] LC medium 96 139 238 297 314 384 394
-    - [x] LC hard 97 340
-    - [ ] LC 8 10 351 356 724
-    - [ ] LRU
-    - [ ] sliding game
+    - [x] LC easy 225 387 706 724
+    - [x] LC medium 8 18 33 96 139 151 230 238 297 314 351 356 384 394 886
+    - [x] LC hard 10 97 295 340 773
+    - [x] LC LRU
     - [ ] 求出N以内的所有质数，并优化存储空间。
-    - [ ] 判断图bipartite
     - [ ] cvs parser
-    - [ ] median of a stream
     - [ ] 24点
+    - [ ] 如何rebalance一个BST
     - [ ] frog jump river
-    - [ ] reverse words in a string
-    - [ ] search in rotated sorted array
-    - [ ] four sum
     - [ ] 设计个大整数的类。主要内容都在constructor里。功能上只要做了个自增1. 需要考虑负数的情况。
-    - [ ] implement a deadlock
+    - [x] implement a deadlock
+        ```java
+        Lock lock1 = new ReentrantLock();
+        Lock lock2 = new ReentrantLock();
+        int var1 = 0, var2 = 0;
+
+        private void worker1() {
+            lock1.lock();
+            try {
+                var1 = 1;
+                while (var2 == 0); // make sure worker2 get lock2
+                System.out.println("worker1 waiting for lock 2");
+                lock2.lock();
+                try{
+                    System.out.println("worker1 gets lock 2");
+                } finally {
+                    lock2.unlock();
+                }
+            } finally {
+                lock1.unlock();
+            }
+        }
+
+        private void worker2() {
+            lock2.lock();
+            try {
+                var2 = 1;
+                while (var1 == 0); // make sure worker1 get lock1
+                System.out.println("worker2 waiting for lock 1");
+                lock1.lock();
+                try {
+                    System.out.println("worker2 gets for lock 1");
+                } finally {
+                    lock1.unlock();
+                }
+            } finally {
+                lock2.unlock();
+            }
+        }
+        ```
     - [ ] random pick with weight
     - [ ] longest increasing path in matrix
-    - [ ] Given an array of integers, those integers are increasing first and then decreasing. Find the pivot point.
+    - [x] Given an array of integers, those integers are increasing first and then decreasing. Find the pivot point.
     - [ ] implement merge sort from scratch. follow up: when you should consider merge sort over quicksort?
     - [ ] convert a binary tree to a list (double linked list) in place. after conversion. the left child of each node points to the prevous node, and right child points to the next node.
     - [ ] 类似于猜词，给一个api，public char[] higherPriority(), 会返回两个字母，比如说“abcd”，这个api会随机返回ab，ac，ad，bc，cd，前一个char在后一个char的左边，
@@ -40,9 +73,10 @@
     - [ ] distributed metrics collector
     - [ ] design apple store
     - [ ] 设想你打开一个folder，然后可以单选，多选，想想如何用data structure和Api来维护这个操作。。。
-    - [ ]  设计throttling
-    - [ ]  design a sports website
+    - [ ] 设计throttling
+    - [ ] design a sports website
     - [ ] Design a twitter.
+    - [ ] design Venmo
     - [ ] 设计一个分布存储的service
 - BQ
     - [ ] 请形容一下你遇到的最大的bug，并说出是如何解决的

@@ -6,11 +6,10 @@ feedback: explain the solution before jumping into it.
     - [read atlas](https://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=510610&extra=page%3D73%26filter%3Dauthor%26orderby%3Ddateline%26sortid%3D311%26sortid%3D311%26orderby%3Ddateline)
 - coding
     - [x] LC easy: 53, 69, 100, 136, 170, 198, 256 270, 339, 605 671 716
-    - [x] LC medium: 3, 33, 46, 50, 56, 114, 127, 142, 150, 152, 156, 187, 200, 213, 236, 243, 244, 245, 254, 277, 341 364, 366 384 416 516 611 612 698 776
+    - [x] LC medium: 3, 33, 46, 50, 56, 114, 127, 142, 150, 152, 156, 187, 200, 213, 236, 243, 244, 245, 254, 277, 341 364 366 380 384 416 516 611 612 698 776 886
     - [x] LC hard: 23, 42, 65 72, 146, 149, 265, 272, 297 352, 381, 432 460 715 895 973
     - [x] LC 189(in place)
     - [x] LC 205. follow up: input是 a list of words，考虑两种条件，第一种是存在两个word是isomorphic就返回true，第二种是任意两个word都为isomorphic才返回true
-    - [ ] LC 380
     - [ ] smallest k product of two sorted array
     - [ ] 给一个数组，求有多少子集合等于一个给定值
     - [ ] 实现线程池/ExecutorService，跑需要延时的任务。面试官说答得挺好
