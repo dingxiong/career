@@ -2,11 +2,10 @@
 - coding
     - [x] LC easy 225 387 706 724
     - [x] LC medium 8 18 33 96 139 151 230 238 297 314 351 356 384 394 886
-    - [x] LC hard 10 97 295 340 773
+    - [x] LC hard 10 97 295 340 697 773
     - [x] LC LRU
     - [ ] 求出N以内的所有质数，并优化存储空间。
     - [ ] cvs parser
-    - [ ] 24点
     - [ ] 如何rebalance一个BST
     - [ ] frog jump river
     - [ ] 设计个大整数的类。主要内容都在constructor里。功能上只要做了个自增1. 需要考虑负数的情况。
