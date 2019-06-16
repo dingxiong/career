@@ -1,8 +1,10 @@
+## Quip
+xxx - 2019/6/15
 - coding
     - [x] LC easy 746
-    - [x] LC medium 240 362 740
-    - [x] LC 354
-    - [ ] LC course schedule 螺旋打印 good number, 761 17 285
+    - [x] LC medium 17 240 285 362 740
+    - [x] LC hard 354 761 829
+    - [ ] LC course schedule 126 411
     - [ ] exam room 那道 LC 855. 有两个api add student 和remove student
     - [ ] auto complete. follow up可以添加很多feature，比如apple juice, 怎么输入jui就返回apple juice。
         怎么根据input "lun pla" return "lunch plan", 甚至怎么设计 input "pla" return "lunch plan"
@@ -28,30 +30,6 @@
     - [x] "011000101101" find min length that contains k 1s
     - [x] Given a list of numbers containing duplicates, return if you can sum any of them equal to k. Each number can only use once.
         => if all numbers are positive => dp; otherwise, DFS.
-    - [x] BST二叉树给一个节点返回下一个比它大的节点
-        ```java
-        private Integer prev, curr;
-
-        private Integer nextNode(TreeNode root, TreeNode node) {
-            prev = null;
-            curr = null;
-            helper(root, node);
-            return curr;
-        }
-
-        private void helper(TreeNode root, TreeNode node) {
-            if (root == null) return;
-
-            helper(root.left, node);
-            if (curr != null) return;
-            if (prev != null) {
-            curr = root.val;
-            return;
-            }
-            if (root.val == node.val) prev = root.val;
-            helper(root.right, node);
-        }
-        ```
     - [x] 检查有向图找环
     - [x] 就是给你一堆rectangle 只有包含或者分离，求最多几个叠在一起. 
         1. 类似 LC skyline. 1. sort in x coordinate. 2 scan from left, maintain a pq of PQ(y1,y2), then scan this pq => O(n^2).
@@ -95,5 +73,29 @@
 
             cache.put(start.toString(), len);
             return len;
+        }
+        ```
+    - [x] 螺旋打印从里到外
+        ```java
+        private int[] squareInnerSpiral(int[][] mat) {
+            int n = mat.length;
+            int x = (n - 1) / 2;
+            int y = x;
+            int[] d = {0, 1};
+
+            int[] result = new int[n*n];
+            result[0] = mat[x][y];
+            for (int step = 1, id = 1; step < n; step++) {
+                int numTurn = step == n - 1 ? 3 : 2;
+                for (int turn = 0; turn < numTurn; turn++) {
+                    for (int i = 0; i < step; i++) {
+                        x += d[0];
+                        y += d[1];
+                        result[id++] = mat[x][y];
+                    }
+                    d = turnRight(d);
+                }
+            }
+            return result;
         }
         ```

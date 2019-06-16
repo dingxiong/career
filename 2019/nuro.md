@@ -1,5 +1,9 @@
 ## Nuro
-2018/7/26 - 2019/5/28
+2018/7/26 - 2019/6/15
+- hint from recruiter
+    - multithreading + IO
+    - communication is important
+    - show interest in nuro. why it is different from its competitor.
 - coding
     - [x] LC 53
     - [x] LC medium 64 96 227 451
@@ -16,6 +20,8 @@
             For [i] => if list[i] highest bit is not set, then just return this byte. Otherwise, return `map.get(i)`.
         2. for n < 3 => ??? 
     - [x] 类似小岛那个题，但是让数最多的那个岛的岛屿个数
+    - [x] Frog jump in a grid. Given grid size m, n, frog initial position x, y,  How many ways to jump out of the grid, within K steps?
+        => 类似LC688. dp[m][n][k+1]
     - [ ] 给定一些 robot，和一些 target，已知所有的点（也就是已知每个 robot 到各个 target 的距离）要求安排一个方案: 一个 robot 到 一个 target。然后这个总的距离最小。
         比如 robot 有 a, b 两个，target 有 1， 2 两个。一个方案是 a 到 1，b 到 2，另一个方案是 a 到 2，b 到 1，答案是取这两个方案中移动距离最小的那个。先假设没有 tie。
         => follow up  然后是 假设上题中一个 robot 可以到多个 target，比如 a 可以先到 1，然后再到 2，而 b 则什么也不做。
@@ -31,11 +37,5 @@
         std::string LargeString::read(size_t start, size_t end);
         ```
         => use Rope https://en.wikipedia.org/wiki/Rope_(data_structure) or segment tree
-
-1. multithreading + IO
-2. coding
-3. system design
-4. BQ
-
-1. communication is important
-2. show interest on nuro. why it is different from its competitor.
+- system design
+    - [ ] Design Netflix

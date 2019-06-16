@@ -1,10 +1,14 @@
-2018/6/27 - 2019/5/22 (pages 1-1000)
+## square
+2018/6/27 - 2019/6/14
 - coding
     - [x] LC easy 415
-    - [x] LC medium 105 210 211
-    - [x] LC hard 68 282
-    - [ ] LC 128 146 588 981 635 289 355 621 127 271 573 139 699 969 15 98 13 57 79 17 91 465 288 284 72
+    - [x] LC medium 13 15 17 79 91 98 105 139 210 211 271 284 288 289 355 573 635 981
+    - [x] LC hard 57 68 72 282 465 588
+    - [ ] LC 128 146 621 127 699 969   
     - [x] 个组合, 里面是[A, B], [B, A], [C, D], [D, E], [E, C] 这样的一对对, 让找所有能环起来的组合:  ([A, B], [B, A] 能环起来,  [C, D], [D, E], [E, C] 也能环起来)
+    - [x] 第一轮写程序按7段数码管格式打印出数字, 例如7就要输出
+        --
+         |
     - [x] 实现简单的画板程序，比如画布是二维矩阵， 实现drawLine （可以是斜着的），然后实现undo操作之类的
         ```java
         input: int mat[][]
@@ -32,7 +36,6 @@
         Map<String, Set<Integer>> peopleToPatentMap;
         Map<String, Set<String>>> patentDependency; 
         ```
-
     - [x] 设计一个class twitter(object)，比如给你一句话：
         # "it was the best of times it was the worst of times"
         你需要让code学会was这个词是跟在it后面的
@@ -127,7 +130,6 @@
         ```
 - System design
     - [ ] 设计 cache, 各种 policy(LRU, LFU...)
-    - [ ] online hotel booking system
     - [ ] x6: hotel booking system, support booking, room searching
         - schemas
             - `hotels` (id, ..)
