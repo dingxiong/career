@@ -29,7 +29,7 @@
     - [ ] 平面上一堆坐标，类型是浮点，要求返回有没有任意两个点之间的距离是小于根号2的. 
         use hashmap ?? if |(x1, y1) - (x2, y2)| < sqrt(2) => at least |x1-x2| < 1 or |y1-y2| < 1 is true.
     - [ ] C++ 中 shared pointer 和 unique pointer 的区别
-    - [ ] Design and implement a data structure that support efficient insert/delete/read operations on a large in-memory mutable string (~Gb) 
+    - [x] Design and implement a data structure that support efficient insert/delete/read operations on a large in-memory mutable string (~Gb) 
         e.g. a text editor 
         ```c++
         void LargeString::insert(char c, size_t i);

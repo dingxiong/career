@@ -87,5 +87,4 @@ Common techniques:
 	- search on blind. Follow topic `Startups`
 - https://techcrunch.com/
 
-## 2019 interview result
-[mics](./2019/README.md)
+## [2019 interview result](./2019/README.md)

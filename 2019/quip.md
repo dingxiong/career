@@ -3,8 +3,8 @@ xxx - 2019/6/15
 - coding
     - [x] LC easy 746
     - [x] LC medium 17 240 285 362 740
-    - [x] LC hard 354 761 829
-    - [ ] LC course schedule 126 411
+    - [x] LC hard 354 411 761 829
+    - [ ] LC course schedule 126 
     - [ ] exam room 那道 LC 855. 有两个api add student 和remove student
     - [ ] auto complete. follow up可以添加很多feature，比如apple juice, 怎么输入jui就返回apple juice。
         怎么根据input "lun pla" return "lunch plan", 甚至怎么设计 input "pla" return "lunch plan"
