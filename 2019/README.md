@@ -1,10 +1,10 @@
 ## Candidate list:
-- offer: Google Brex Citadel
-- onsite interview : Robinhood LinkedIn Houzz Square quip
-- phone interview: Uber dropbox, amazon stripe
+- offer: Google Brex Citadel Houzz LinkedIn
+- onsite interview : Robinhood Square quip dropbox Uber
+- phone interview:  stripe
 - failed : Facebook, Netflix, Jane street Lyft apple
 - no response : snapchat Twitter Pintrest two sigma, jump trading, DE shaw
-- cancelled: Nuro
+- cancelled: Nuro amazon
 
 
 ## Summary

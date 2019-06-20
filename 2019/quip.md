@@ -2,13 +2,12 @@
 xxx - 2019/6/15
 - coding
     - [x] LC easy 746
-    - [x] LC medium 17 240 285 362 740
+    - [x] LC medium 17 209 210 240 285 362 740 855
     - [x] LC hard 354 411 761 829
-    - [ ] LC course schedule 126 
-    - [ ] exam room 那道 LC 855. 有两个api add student 和remove student
+    - [ ] LC 126
     - [ ] auto complete. follow up可以添加很多feature，比如apple juice, 怎么输入jui就返回apple juice。
         怎么根据input "lun pla" return "lunch plan", 甚至怎么设计 input "pla" return "lunch plan"
-    - [x] 用Node class写个class 叫 sorted circular singular linked list 然后写一下append method. 
+    - [x] 用Node class写个class 叫 sorted circular singular linked list 然后写一下append  method. 
         follow up 如果append的时候不能改原来的任何Node改怎么做（Head的corner case)
         ```java
         Node insert(Node root, int val) {
@@ -22,7 +21,6 @@ xxx - 2019/6/15
             return curr.next.val < root.val ? curr.next : root;
         }
         ```
-    - [x] 给你一个排序好了的circular linked-list 的其中一个node（这个可以是任何node），请你insert一个新的node并返回这个node
     - [ ] json转dict, dict转json
     - [ ] json 转 string
     - [x] RW lock
@@ -44,6 +42,7 @@ xxx - 2019/6/15
         => build a reverse index: `Map<Item, Set<list_id>>`.
     - [x] 斐波那契。。就是换成三个数 1, 1, 1, 3, 5, 9
     - [x] given a list of words, and for each word, find the prefix substring of each word, which is not a prefix substring of other words.
+        => Trie tree. Each node contains a count. If the count = 1, then this substring is a good candidate.
     - [x] 给你一个string,形式是b*a*c，然后让你找a的个数. 比如 bbbbbaaaaaccccc, 那么个数就是5 
         => if mid = b, low = mid + 1. if mid = c, high = mid -1; if mid = a, then solve left part in lgN and right part lgN. 
     - [x] 给一大堆英文单词dictionary，从所有2个字母的单词，每次可以在它前面或者后面加一个字母，新的单词也要在dictionary里，找到最长的链。
