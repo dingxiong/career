@@ -52,8 +52,16 @@
         ```
     - [x] 给一个json文件，里面包含一些http request和http response，读取之后回放其中的http request，比对http response是否一样。
         => use OkHttp and gson
-    - [ ] debugging
+    - [ ] debugging: moshi早期的一个版本，parser用到了stack，bug貌似是在stack的部分
+    - [x] 1.输入有一堆account, 包括name, time, due amount, 按照时间给每个人发多封pay due 的提醒邮件,输出所有按时间排序的email
+        => PQ
+        2. 再给一堆还钱的时间点,还清就不用发提醒邮件了,输出所有email
+        => send email PQ + 还钱 HashMap<Email, timestamp>。 每次pop的时候看看ts是否比还钱map里面的早。
+
+ 
 - system design
     - [ ] 设计一个event tracking/metrics service 供内部很多其他系统调用，可以用来统计throughput做监控等等。
     - [ ] 设计 webhook. 就是把不同公司的payment route到不同的地方
+    - [ ] 设计一个转账系，主要是支持转账，入账和payout。除了基本的scale，主要考虑API的设计是否支持国际化，并且后端系统支持去重复，single point failure的问题，
+        因为是处理钱，比如strong consistency。
 

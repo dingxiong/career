@@ -1,12 +1,12 @@
 2019/5/19 - ..
 店面： 矩阵找最大 1 block
 - coding
-    - [x] LC easy: 3, 17, 20, 22, 33, 34, 35, 36, 88, 101, 122, 160, 349 359 427 438
+    - [x] LC easy: 3, 17, 20, 22, 33, 34, 35, 36, 88, 101, 122, 160, 349 359 427 438 706
     - [x] LC medium: 40, 49, 56, 62, 75, 79, 86, 98, 127, 138, 139, 173, 200, 206, 207, 208, 210, 221, 227, 253, 267, 279, 287, 289 300 304 332 
-        341 353 362 380, 385, 399, 450, 528 694 921 1014,
-    - [x] LC hard: 4 37, 42，68, 72, 76, 126, 128, 140, 158, 212, 239, 295 297 305 329 381 403 410 465 730 741 759 805 895
-    - [ ] LC 32 164, 745 773 301 518 529 625, 636 978, 979, 986 815 772 706 
-    - [ ] ** LC 159 679 736 640 658 947 785 591
+        341 353 362 380, 385, 399, 450, 528 625 636 640 658 694 785 921 947 986 1014,
+    - [x] LC hard: 4 37, 42，68, 72, 76, 126, 128, 140, 158, 212, 239, 295 297 305 329 381 403 410 465 679 730 741 759 772 805 895
+    - [ ] LC 32 164, 745 773 301 518 529 978 979 815  
+    - [ ] ** LC 159 736
     - [ ] LC next permutation, calculator I, intersect/untion two lists of intervals, merge interval, skyline, alien dictionary, 
     - [ ] LC 2D Trapping Rainwater, 3D Trapping Rainwater
     - [ ] LC hit count、find k closest element、 surrounded region, Design Hit Counter, coin change 2
@@ -128,12 +128,12 @@
             int[] curr = a[0];
             while (i < na || j < nb) {
                 if (i < na && curr[1] >= a[i][0]) {
-                curr[1] = Math.max(a[i++][1], curr[1]);
+                    curr[1] = Math.max(a[i++][1], curr[1]);
                 } else if (j < nb && curr[1] >= b[j][0]){
-                curr[1] = Math.max(b[j++][1], curr[1]);
+                    curr[1] = Math.max(b[j++][1], curr[1]);
                 } else {
-                merge.add(curr);
-                curr = (j == nb || i < na && a[i][0] < b[i][0]) ? a[i] : b[j];
+                    merge.add(curr);
+                    curr = (j == nb || i < na && a[i][0] < b[i][0]) ? a[i] : b[j];
                 }
             }
             merge.add(curr);
