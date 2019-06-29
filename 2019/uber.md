@@ -3,13 +3,12 @@
 - coding
     - [x] LC easy: 3, 17, 20, 22, 33, 34, 35, 36, 88, 101, 122, 160, 349 359 427 438 706
     - [x] LC medium: 40, 49, 56, 62, 75, 79, 86, 98, 127, 138, 139, 173, 200, 206, 207, 208, 210, 221, 227, 253, 267, 279, 287, 289 300 304 332 
-        341 353 362 380, 385, 399, 450, 528 625 636 640 658 694 785 921 947 986 1014,
-    - [x] LC hard: 4 37, 42，68, 72, 76, 126, 128, 140, 158, 212, 239, 295 297 305 329 381 403 410 465 679 730 741 759 772 805 895
-    - [ ] LC 32 164, 745 773 301 518 529 978 979 815  
-    - [ ] ** LC 159 736
+        341 353 362 380, 385, 399, 450, 528 529 625 636 640 658 694 785 921 947 986 1014,
+    - [x] LC hard: 4 37, 42，68, 72, 76, 126, 128, 140, 158 159 212, 239, 295 297 305 329 381 403 407 410 465 679 730 741 759 772 773 805 815 895
+    - [ ] LC 32 164 745 301 518 978 979   
+    - [ ] ** LC 736
     - [ ] LC next permutation, calculator I, intersect/untion two lists of intervals, merge interval, skyline, alien dictionary, 
-    - [ ] LC 2D Trapping Rainwater, 3D Trapping Rainwater
-    - [ ] LC hit count、find k closest element、 surrounded region, Design Hit Counter, coin change 2
+    - [ ] LC hit count, surrounded region, Design Hit Counter, coin change 2
     - [ ] LC 给一个almost sorted array，求index i,j 使得如果i,j 之间的元素全排序好了，那整个array也排序好了
     - [ ] Reconstruct itinerary. Follow up: return deepest path in DAG with different starting nodes
     - [ ] 打印所有的不小于某个数的Jumping Number.   Jumping Number 就是相邻位数之间差绝对值为1. 比如打印所有不小105的Jumping Number就是  0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 21, 23, 32, 34, 43, 45, 54, 56, 65, 67, 76, 78, 87, 89, 98, 101 其实就是BFS/DFS 遍历二叉树. Follow up 是打印某个区别的Jumping Numbers
@@ -22,7 +21,8 @@
     - [ ] 给你一个integer, 可以把其中两个digit位置交换一次, 返回操作后的最大数字: E.g. 5831 -> 8531, 777 -> 777 (已经是最大了)
     - [x] 收尾相接的排好序的循环单链表，实现两个方法，1. findNode(int val，Node startNode)   2. insertNode(int val, Node startNode) 要保持排好序， 因为首尾相接，startNode可以是任意其中的Node。
         => part 2: 三种情况分别考虑: val = currtNode.val, val > currtNode.val, val < currtNode.val. 每种情况会有好几个branch.
-    - [ ] 实现一个数据结构 以下操作都要O(1). put(k, v), get(k), get_random() -> 随机返回key value pair, delete(k)
+    - [x] 实现一个数据结构 以下操作都要O(1). put(k, v), get(k), get_random() -> 随机返回key value pair, delete(k)
+        => similar to LC 380. Use swap for deletion
     - [ ] 造n-ary tree, 给一系列turple, 无序的， 不仅ancestor和直系的children是一对turple， 且ancestor和任何非直系的children也是一对turple 
         打比方说 1-2 1-3 2-4这样一个树 那么输入就是[(1,1)(1,2)(1,3)(2,2)(3,3)(1,4)(2,4)(4,4)]然后把这个恢复成树， 注意这些turple不是根据ancester-children的任何顺序排好的，是无序的
     - [ ] Design Rate Limiter API, 说是有个function a, 设计 Rate Limiter class，保证每秒内call a的次数不能超过100次
@@ -133,7 +133,7 @@
                     curr[1] = Math.max(b[j++][1], curr[1]);
                 } else {
                     merge.add(curr);
-                    curr = (j == nb || i < na && a[i][0] < b[i][0]) ? a[i] : b[j];
+                    curr = (j == nb || i < na && a[i][0] < b[j][0]) ? a[i] : b[j];
                 }
             }
             merge.add(curr);
@@ -218,7 +218,7 @@
     - [x] Design Whatsapp
     - [x] 设计一个即时通讯系统，类似于微信这样。
     - [x] design uber
-    - [ ] hotel booking system
+    - [x] hotel booking system
     - [ ] best seller page of Amazon. 
     - [ ] design heat map
     - [ ] design uber eat app. 打开以后显示地图与附近n个商家。讨论app跟server应有哪些api，一次传送多少商家比较合理，如何分地理区，资料库table该如何设计，如何scale，single point failure。面官应该就是做这的，特别熟，节奏都是他主动带着走，他问一个功能或情境，我回答。最后问我如果server全挂了怎么办，我说不管配置多少master-slave全挂嘛？他说是，我说那无解啦。他说没错，他们前几周才刚遇到过.
@@ -261,47 +261,3 @@
     - example of product failed before deadline
     - teamwork
     - weakness
-
-
-
-
-    - 找岛的个数和返回一个数的质数因子
-    - 给定一串字符，以及每行的长度限制，输出每行内容。
-    e.g. 20 Hey Joey, your uber is arriving soon!
-    Hey Joey, your uber 
-    is arriving soon!
-    单个单词长度超过每行限制。要求实现当下一个字符的长度超过限制时，要强行在中间截断。
-    e.g. 11 Hey Joey, your uber is abcdefghijklmnopqrstuvwxyz soon!
-    Hey Joey, 
-    your uber
-    is abcdefghijklmnopqrs
-    tuvwxyz
-    soon!
-    3. 现在想要在每一行后加上标记这是第几行 （i/N）i是当前行，N是总行数
-    e.g. 15 Hey Joey, your uber is abcdefghijklmnopqrstuvwxyz soon!
-    Hey Joey,(1/6)
-    your uber(2/6)
-    is abcdefg(3/6)
-    hijklmnopq(4/6)
-    rstuvwxyz(5/6)
-    soon!(6/6)
-
-    用了先估计每行需要省出多少字符来做标记的方法。用input长度除去行宽的位数加一来估计N的字符数，然后用估计的字符数来限制新的每行行宽。之后将每一行的字符写入，最后再在每一行后加上标记即可。
-
-    https://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=516826&extra=page%3D29%26filter%3Dauthor%26orderby%3Ddateline%26sortid%3D311&page=1
-
-- 电面是给定一个transaction list代表一系列银行之间转账的交易，比如[Chase, BOA, 100]代表Chase给BOA打了100刀，简化这个transaction list。不需要简化到最简，只要相同一对银行的转账记录压缩到一个就行了，比如transaction list包含[Chase, BOA, 100]，[BOA, Chase, 200], [BOA, Chase, -100], 就可以简化成[BOA, Chase, 0]，谁在前面都可以。题目不难，还是很直观的。
-- Kth Most Frequent Element in array. Given an array, return kth most frequent element, like:
-example1: array:[1,5,5,4,4,5], k = 1, return 5 (5's has 1st most frequency)
-example2: array:[1,
-
-    
-    第一轮-bar-raiser：主要聊了工程师相关的一些问题，全程都在BQ，比如leadership啊mentoringship之类的
-第二轮Design：一个俄罗斯美女和一个美国经理，DesignInstgram，老题目了。主要是结合了Feed+CDN的设计
-第三轮Design：一个土耳其大哥，Design Whatsapp，在登录认证上有很多的讨论
-第四轮Coding：一个欧洲帅哥，手机短信切分的问题，要考虑一下part大于10个的情况，一定要run出正确的结果，还问了一些testing的问题。应该说讨论的还是蛮开心的
-第五轮Coding：一个俄罗斯美女，GameOfLife，主要问了是否有一些优化的方法，还问了时间复杂度的问题。
-
-- system design
-    - DesignDropbox 所有的System Design会问的都会问 (storage/scale/requirements etc) 会特别问如何解决 conflicts/concurrency (记得看看lamport clock) 然后要想想存data本身跟存储meta data之间怎么协调
-    -     

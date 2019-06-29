@@ -1,13 +1,13 @@
 ## Candidate list:
 - offer: 
 	- Google
-	- Brex
-	- Citadel
-	- Houzz 145K, 35000 rsu * 11.43, 20k sign on
-	- LinkedIn 175K, 3000rsu, 50k sign on
-- onsite interview : Robinhood Square quip dropbox Uber
-- phone interview:  stripe
-- failed : Facebook, Netflix, Jane street Lyft apple
+	- Brex 275k
+	- Citadel 225k + 175k + 50k + 30k 
+	- Houzz 165K, 515k/4 rsu, 25k sign on
+	- LinkedIn 175K, 300k/4, 50k sign on
+  - Quip: 156k, 20% yearly bonus, 200k/4 stock, 25k sign on
+- onsite interview : Robinhood Square dropbox Uber
+- failed : Facebook, Netflix, Jane street Lyft apple stripe
 - no response : snapchat Twitter Pintrest two sigma, jump trading, DE shaw
 - cancelled: Nuro amazon
 
@@ -33,7 +33,7 @@ def contain_key(keyword, file_name)
                 .map {|line| line.encode!('UTF-8', 'binary', invalid: :replace, undef: :replace, replace: '').downcase }
                 #.map {|line| line.force_encoding('gb2312').encode('UTF-8').downcase } # correct the encoding
     # content.any? { |line| line.include?(keyword) }
-    content.any? { |line| line.include?(keyword) }
+    content.any? { |line| line.include?(keyword) && line.include?('onsite') }
 end
 
 def get_pages(keyword, from, to)
@@ -65,12 +65,13 @@ get_chrome_command(pages)
 
 ## Summary
 1. 金融公司特别喜欢问netword, multithreading, c++ 的问题。所以千万不要在简历里面写自己会这些。
-2. java 的 concurrency 代码库其实写的很好，是一个很好的学习资源。自己应该自己看看 implemenation.
+2. java 的 concurrency 代码库其实写的很好，是一个很好的学习资源。自己应该看看 implementation.
 3. networking 这一块真的不熟悉。可以找本书仔细学习一下。
 
 - left work
 	- two week notice
 	- airbnb credit transfer to personal account
+  - visit phd adviser
 
 - 律师：
 	1. 问清楚律师 H1B transfer: 多久时间
