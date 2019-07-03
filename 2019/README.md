@@ -1,13 +1,17 @@
 ## Candidate list:
 - offer: 
-	- Google
-	- Brex 275k
-	- Citadel 225k + 175k + 50k + 30k 
-	- Houzz 165K, 515k/4 rsu, 25k sign on
-	- LinkedIn 175K, 300k/4, 50k sign on
-  - Quip: 156k, 20% yearly bonus, 200k/4 stock, 25k sign on
-- onsite interview : Robinhood Square dropbox Uber
-- failed : Facebook, Netflix, Jane street Lyft apple stripe
+	- [不去] Google 156k + 200k/4, 15% bonus, 25k signon
+	- [不去] Brex 275k
+	- Citadel 225k + 175k target bonus + 50k signon + 30k stock buyout
+	- [不去] Houzz 165K, 515k/4, 25k sign on
+	- [不去] LinkedIn 175K, 300k/4, 50k sign on
+  - [不去] Quip: 187k, 25% yearly bonus, 350k/4 stock, 40k sign on
+  - [不去] Uber: 
+  - [不去] Robinhood:
+- failed:
+  - resume: Facebook Netflix
+  - phone screen: Jane_street Lyft apple stripe
+  - onsite: Square dropbox
 - no response : snapchat Twitter Pintrest two sigma, jump trading, DE shaw
 - cancelled: Nuro amazon
 
