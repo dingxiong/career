@@ -88,3 +88,6 @@ Common techniques:
 - https://techcrunch.com/
 
 ## [2019 interview result](./2019/README.md)
+
+## C++ material
+1. Effective Modern C++: 42 Specific Ways to Improve Your Use of C++11 and C++14
