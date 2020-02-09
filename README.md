@@ -91,3 +91,4 @@ Common techniques:
 
 ## C++ material
 1. Effective Modern C++: 42 Specific Ways to Improve Your Use of C++11 and C++14
+2. C++ Templates: The Complete Guide, 2nd Edition
