@@ -86,6 +86,7 @@ Common techniques:
 	- https://breakoutlist.com/
 	- search on blind. Follow topic `Startups`
 - https://techcrunch.com/
+- [全球最知名的十五大高频交易公司](https://zhuanlan.zhihu.com/p/56510796)
 
 ## [2019 interview result](./2019/README.md)
 
