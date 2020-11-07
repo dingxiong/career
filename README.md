@@ -4,7 +4,7 @@ This is my personal collection of materials for tech interviews.
 
 ### Array related
 - core
-	- [x] quick select
+	- [x] quick select `LC1471`
 	- [x] rainbow sort
 
 ### String matching
@@ -20,6 +20,7 @@ This is my personal collection of materials for tech interviews.
 
 ### Graph/tree algorithm
 - core
+	- [x] tree traversal `LC1457`, 
 	- [x] cycle detection `LC684`, `LC207`
 	- [x] minimal spanning tree
 	- [x] Dijkstra's algorithm `LC743`
@@ -28,7 +29,7 @@ This is my personal collection of materials for tech interviews.
 	- [ ] A* algorithm 
 	- [x] Bellman–Ford algorithm  `LC743`
 		> Dijkstar's algorithm cannot handle negative weight edges, but Bellman-Ford does. 
-	- [ ] Floyd–Warshall algorithm
+	- [x] Floyd–Warshall algorithm `LC1462`
 	- [x] Shortest Path Faster Algorithm (SPFA) `LC743`
 		> An improvement on top of Bellman-Ford
 	- [ ] Johnson's algorithm
@@ -44,8 +45,14 @@ This is my personal collection of materials for tech interviews.
 - core
 	- [x] Fisher–Yates shuffle `LC 519`
 	- [x] Reservoir sampling
+	- [x] Knapsack problem 
+- others
+    - 
 
-## Data structures  
+## Data structures
+- basic
+    - [x] stack `LC1475, LC1081`
+    - [ ] 
 - core
 	- [ ] Red black tree 
 	- [ ] AVL
@@ -74,6 +81,8 @@ Common techniques:
 - [x] push vs pull
 - [x] consistent hashing (cassandra), p2p vs master-slave
 
+## [Coding tips](coding_tips.md)
+
 ## [System design](system_design/README.md)
 
 ## Resources
@@ -93,3 +102,5 @@ Common techniques:
 ## C++ material
 1. Effective Modern C++: 42 Specific Ways to Improve Your Use of C++11 and C++14
 2. C++ Templates: The Complete Guide, 2nd Edition
+
+

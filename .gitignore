@@ -1,3 +1,7 @@
+# micsdiff
+.DS_Store
+*dsYM
+
 # Compiled Object files
 *.slo
 *.lo
