@@ -1,7 +1,3 @@
-## Tips for C++ interview
-1. Use std::deque for use cases of std::stack, std::queue. So I do not need to remember the subtle differences of their APIs. Also, std::deque provide iterator features for constructions and iteration, which is easier for me to construct it and print the content of it.
-2.
-
 ## packages
 
 ###  container initialization
@@ -60,7 +56,7 @@
 - std::greater, std::less
 
 ### <cctypes>
-- std::isalpha,
+- std::isalpha, std::isdigit, std::isalnum
 - std::tolower, std::toupper
   - Note, the signature is `int tolower( int ch );` so we should be careful with two things.
     - 1. We should convert input as `unsigned char` : `static_cast<unsigned char>()`
@@ -70,6 +66,8 @@
 ### Mics
   - swap: 
     - swap elements of a vector: `std::swap(v[i], v[j])`
+  - nullptr:
+    - It has type `std::nullptr_t`. It does not overwrite `operator bool` function, so `!nullptr` is always true. use `ptr == nullptr` to check if `ptr` is null or not, not use `!ptr`.
 
 ### Util functions
 1. string split

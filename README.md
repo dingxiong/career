@@ -82,7 +82,7 @@ Common techniques:
 - [x] consistent hashing (cassandra), p2p vs master-slave
 
 ## [Coding tips](coding_tips.md)
-
+## [Company list](companies.md)
 ## [System design](system_design/README.md)
 
 ## Resources
