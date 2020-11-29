@@ -15,7 +15,9 @@
 - 
 
 ### container
-- unordered_set/map: 
+- `unordered_set<K, Hash, KeyEqual, Allocator>`
+  - erase, insert
+- `std::map<K, V, Compare, Allocator>`: 
   - erase, insert,
   - upper_bound(k): greater than k
   - lower_bound(k): greater or equal than k
@@ -32,6 +34,9 @@
   - both queue and priority_queue do not define `begin`, `end`, so in order to view the elements 
     it, you should pop out the elements and reconstruct the queue.
     For queue, the default underlying container is `std::deque`, and queue constructor only accepts a new container. For priority_queue, the constructer accepts begin and end iterators.
+- `std::list<T, Allocator>`
+  - push_back, emplace_back, pop_back, push_front, emplace_front, pop_front, front, back
+  - insert/emplace, erase
 - std::string:
   - `find` and `find_first_of` are two different functions
   - `std::string::npos`
@@ -43,6 +48,8 @@
 - std::ostream_iterator, std::istream_iterator : class
   - Note, the template param cannot be omitted, and the second parameter is a string not a char. 
   - Ex: std::ostream_iterator<int>(std::cout, ",")
+- Most container's iterator class only defines `++`, `--` operator. In order to increased/decrease  
+  iterator, use `std::advance(iter, n)`.
 
 ### <algorithm>
 - std::reverse, std::reverse_copy
@@ -51,6 +58,7 @@
 - std::count, std::count_if
 - std::min_element, std::max_element
   - Can be used for raw array
+- `std::lower_bound`, `std::upper_bound`, `std::binary_search`
 
 ### functional
 - std::greater, std::less

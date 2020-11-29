@@ -1,5 +1,7 @@
 This is my personal collection of materials for tech interviews.
 
+[Read this goddam list](https://cp-algorithms.com/)
+
 ## Algorithms
 
 ### Array related
@@ -45,6 +47,7 @@ This is my personal collection of materials for tech interviews.
 - core
 	- [x] Fisher–Yates shuffle `LC 519`
 	- [x] Reservoir sampling
+	- [x] Boyer-Moore algorithm
 	- [x] Knapsack problem 
 - others
     - 
