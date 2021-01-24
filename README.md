@@ -1,6 +1,7 @@
 This is my personal collection of materials for tech interviews.
 
 [Read this goddam list](https://cp-algorithms.com/)
+[Chinese resource](https://oi-wiki.org/)
 
 ## Algorithms
 

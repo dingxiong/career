@@ -12,8 +12,10 @@ https://www.spoj.com/problems/CHAIN/
 #include <unordered_map>
 #include <utility>
 #include <vector>
+#include <functional>
 using namespace std;
 
+using plusx = std::plus<int>
 using Mat = std::vector<vector<int>>;
 using P = std::unordered_map<int, pair<int, int>>;
 using R = std::unordered_map<int, int>;
